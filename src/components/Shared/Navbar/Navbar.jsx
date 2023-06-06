@@ -12,7 +12,7 @@ const Navbar = () => {
     </>
     return (
         <>
-            <div className="navbar fixed justify-between z-50 bg-white text-black bg-opacity-50  ">
+            <div className="navbar fixed  justify-between z-50 bg-white text-black bg-opacity-50  max-w-7xl">
                 <div className="navbar-start text-black">
                     <div className="dropdown ">
                         <label tabIndex={0} className="btn btn-ghost md:hidden text-black">
@@ -22,10 +22,10 @@ const Navbar = () => {
                             {navOptions}
                         </ul>
                     </div>
-                    <Link to="/" className="cursor-pointer">
+                    <div to="/" className="cursor-pointer">
                         <img className="w-14 md:w-20 mx-auto" src="https://i.ibb.co/wJKQkbY/favpng-painting-graphic-design-brush.png" alt="" />
                         <a className=" normal-case text-base md:text-xl text-black">Fancy Drawing School</a>
-                    </Link>
+                    </div>
                 </div>
                 <div className="navbar-end hidden md:flex">
                     <ul className="menu menu-horizontal items-center px-1">
