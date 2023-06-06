@@ -1,10 +1,18 @@
-
+import { Link } from "react-router-dom";
+import Lottie from "lottie-react";
+import animationData from "../../../public/404.json";
+import Button from "../../components/Button/Button";
 
 const ErrorPage = () => {
     return (
-        <div>
-            Error Page
-        </div>
+        <>
+            <Lottie className="h-[90vh]" animationData={animationData} loop={true} />
+            <Link className="flex justify-center" to="/">
+                <Button>{"Back To Home"}</Button>
+            </Link>
+
+
+        </>
     );
 };
 
