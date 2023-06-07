@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Lottie from "lottie-react";
-import animationData from "../../../public/404.json";
+import animationData from "../../assets/404.json";
 import Button from "../../components/Button/Button";
 
 const ErrorPage = () => {
@@ -10,8 +10,6 @@ const ErrorPage = () => {
             <Link className="flex justify-center" to="/">
                 <Button>{"Back To Home"}</Button>
             </Link>
-
-
         </>
     );
 };
