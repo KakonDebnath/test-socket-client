@@ -1,11 +1,7 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
-import img6 from "../../../src/assets/banner6 (Custom).jpg"
-import img2 from "../../../src/assets/banner2 (Custom).jpg"
-import img3 from "../../../src/assets/banner3 (Custom).jpg"
-import img4 from "../../../src/assets/banner4 (Custom).jpg"
-import img5 from "../../../src/assets/banner5 (Custom).jpg"
 import Button from "../../components/Button/Button";
+import { Link } from "react-router-dom";
 
 const BannerSection = () => {
     return (
@@ -18,45 +14,44 @@ const BannerSection = () => {
         >
             <div className="relative">
                 <div className="absolute bg-black bg-opacity-50 w-full h-full "></div>
-                <img src={img2} />
-                <div className="absolute top-1/2 -translate-y-1/2 left-20 space-y-5">
-                    <p className=" text-white text-5xl w-[40vw]  capitalize text-left ">earn Drawing and Painting from the Best Art Teachers</p>
-                    <Button className="">Enroll Now!</Button>
+                <img src="https://i.ibb.co/BynKcrt/banner2-Custom.jpg" />
+                <div className="absolute top-1/2 -translate-y-1/2 left-20 ">
+                    <p className=" text-white text-5xl w-[40vw]  capitalize text-left mb-4 md:mb-10 ">earn Drawing and Painting from the Best Art Teachers</p>
+                    <Link to="/login"><Button className="">Enroll Now!</Button></Link>
                 </div>
             </div>
             <div className="relative">
                 <div className="absolute bg-black bg-opacity-50 w-full h-full "></div>
-                <img src={img3} />
+                <img src="https://i.ibb.co/RvpyLty/banner3-Custom.jpg" />
                 <div className="absolute top-1/2 -translate-y-1/2 left-20 space-y-5">
-                    <p className=" text-white text-5xl w-[40vw]  capitalize text-left ">earn Drawing and Painting from the Best Art Teachers</p>
-                    <Button className="">Enroll Now!</Button>
+                    <p className=" text-white text-5xl w-[40vw]  capitalize text-left mb-4 md:mb-10 ">earn Drawing and Painting from the Best Art Teachers</p>
+                    <Link to="/login"><Button className="">Enroll Now!</Button></Link>
                 </div>
             </div>
             <div className="relative">
                 <div className="absolute bg-black bg-opacity-50 w-full h-full "></div>
-                <img src={img4} />
+                <img src="https://i.ibb.co/HrPSKZR/banner4-Custom.jpg" />
                 <div className="absolute top-1/2 -translate-y-1/2 left-20 space-y-5">
-                    <p className=" text-white text-5xl w-[40vw]  capitalize text-left ">earn Drawing and Painting from the Best Art Teachers</p>
-                    <Button className="">Enroll Now!</Button>
+                    <p className=" text-white text-5xl w-[40vw]  capitalize text-left mb-4 md:mb-10 ">earn Drawing and Painting from the Best Art Teachers</p>
+                    <Link to="/login"><Button className="">Enroll Now!</Button></Link>
                 </div>
             </div>
             <div className="relative">
                 <div className="absolute bg-black bg-opacity-50 w-full h-full "></div>
-                <img src={img5} />
+                <img src="https://i.ibb.co/Q9scCr4/banner5-Custom.jpg" />
                 <div className="absolute top-1/2 -translate-y-1/2 left-20 space-y-5">
-                    <p className=" text-white text-5xl w-[40vw]  capitalize text-left ">earn Drawing and Painting from the Best Art Teachers</p>
-                    <Button className="">Enroll Now!</Button>
+                    <p className=" text-white text-5xl w-[40vw]  capitalize text-left mb-4 md:mb-10 ">earn Drawing and Painting from the Best Art Teachers</p>
+                    <Link to="/login"><Button className="">Enroll Now!</Button></Link>
                 </div>
             </div>
             <div className="relative">
                 <div className="absolute bg-black bg-opacity-50 w-full h-full "></div>
-                <img src={img6} />
+                <img src="https://i.ibb.co/QQsJ1Bd/banner6-Custom.jpg" />
                 <div className="absolute top-1/2 -translate-y-1/2 left-20 space-y-5">
-                    <p className=" text-white text-5xl w-[40vw]  capitalize text-left ">earn Drawing and Painting from the Best Art Teachers</p>
-                    <Button className="">Enroll Now!</Button>
+                    <p className=" text-white text-5xl w-[40vw]  capitalize text-left mb-4 md:mb-10 ">earn Drawing and Painting from the Best Art Teachers</p>
+                    <Link to="/login"><Button className="">Enroll Now!</Button></Link>
                 </div>
             </div>
-
         </Carousel>
     );
 };

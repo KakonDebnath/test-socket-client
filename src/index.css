@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.section_clip_path{
+    clip-path: polygon(20% 20%, 80% 20%, 100% 100%, 0% 100%)
+}
+
+.text-background{
+    background: linear-gradient(136.85deg,#ff37f2 25.82%,#405aff 75.57%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.font-family{
+    font-family: "Kalam", cursive;
+}
+
+.my_shadow{
+
+}
+.my_shadow:hover{
+    
+}

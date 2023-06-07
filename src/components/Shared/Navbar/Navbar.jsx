@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import useAuth from "../../../hooks/useAuth";
 
 
 const Navbar = () => {
@@ -42,7 +41,7 @@ const Navbar = () => {
                     <Link to="/">
                         <button to="/signOut" className="btn btn-warning">Sign Out</button>
                     </Link>
-                    <Link to="/signUp">
+                    <Link to="/login">
                         <button className="btn btn-ghost">Login</button>
                     </Link>
                 </div>
