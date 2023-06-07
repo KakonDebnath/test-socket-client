@@ -1,8 +1,46 @@
-import { Link } from "react-router-dom";
-import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
+import { useState } from "react";
+import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
+import SocialLogin from "../../components/Shared/SocialLogin/SocialLogin";
 
 
-const SignUp = () => {
+const Login = () => {
+    const { register, handleSubmit, reset } = useForm();
+    const [showPassword, setShowPassword] = useState(false);
+    const { signIn } = useAuth();
+    const location = useLocation()
+    const navigate = useNavigate();
+    let from = location.state?.from?.pathname || "/";
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
+
+    const onSubmit = (data) => {
+        signIn(data?.email, data?.password)
+            .then(res => {
+                reset();
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Login Successfully',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+                navigate(from, { replace: true });
+                console.log(res.user);
+            }).catch(err => {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: `${err.message}`,
+                  })
+                console.log(err);
+            })
+
+    }
 
     return (
         <div className="hero min-h-screen bg-base-200 w-full">
@@ -15,32 +53,39 @@ const SignUp = () => {
 
                 <div className="card flex-shrink-0 md:w-5/12 w-full shadow-2xl bg-base-100">
                     <div className="card-body">
-                        {/* {
-                            errorMsg && <div className="alert alert-warning shadow-lg">
-                                <div>
-                                    <BiError size={24}></BiError>
-                                    <span>{errorMsg}</span>
-                                </div>
-                            </div>
-                        } */}
-                        <form>
+                        <form onSubmit={handleSubmit(onSubmit)}>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input placeholder="email" className="input input-bordered" />
-                                {/* {errors.email && <span className="text-red-500">This field is required</span>} */}
+                                <input placeholder="email" className="input input-bordered" {...register("email", { required: true })} />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" placeholder="password" className="input input-bordered" />
-                                {/* {errors.password && <span className="text-red-500">This field is required</span>} */}
+                                <div className="relative">
+                                    <input
+                                        type={showPassword ? 'text' : 'password'}
+                                        placeholder="password"
+                                        className="input input-bordered w-full"
+                                        {...register("password", { required: true })}
+                                    />
+                                    <div
+                                        className="absolute top-4 right-2 cursor-pointer"
+                                        onClick={togglePasswordVisibility}
+                                    >
+                                        {showPassword ? (
+                                            <AiOutlineEyeInvisible size={20} />
+                                        ) : (
+                                            <AiOutlineEye size={20} />
+                                        )}
+                                    </div>
+                                </div>
                             </div>
-                            
 
-                            <div className="form-control mt-6">
+
+                            <div className="form-control mt-6 w-1/2 mx-auto">
                                 <button type="submit" className="btn btn-warning">Login</button>
                             </div>
                             <div>
@@ -48,15 +93,7 @@ const SignUp = () => {
                             </div>
                         </form>
                         <div className="divider"></div>
-                        <div>
-                            <p className="text-center">Or sign in with</p>
-                        </div>
-                        <div className="flex justify-center gap-10 md:w-1/2 w-full mx-auto ">
-
-                            <button className="border-2 border-black p-2 rounded-full transition-all duration-300 cursor-pointer hover:bg-black hover:text-white"><FaGoogle></FaGoogle></button>
-                            <button className="border-2 border-black p-2 rounded-full transition-all duration-300 cursor-pointer hover:bg-black hover:text-white"><FaGithub></FaGithub></button>
-                            <button className="border-2 border-black p-2 rounded-full transition-all duration-300 cursor-pointer hover:bg-black hover:text-white"><FaFacebook></FaFacebook></button>
-                        </div>
+                        <SocialLogin></SocialLogin>
                     </div>
                 </div>
             </div>
@@ -64,4 +101,4 @@ const SignUp = () => {
     );
 };
 
-export default SignUp;
+export default Login;

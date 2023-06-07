@@ -1,4 +1,3 @@
-const sectionImg = "../../assets/ss.jpeg"
 
 const SectionTitle = ({heading, subheading}) => {
     return (

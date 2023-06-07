@@ -10,6 +10,7 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [errorMsg, setErrorMsg] = useState("");
 
     const googleProvider = new GoogleAuthProvider();
 
@@ -23,7 +24,7 @@ const AuthProvider = ({ children }) => {
         return signInWithEmailAndPassword(auth, email, password);
     }
 
-    const googleSignIn = () =>{
+    const googleSignIn = () => {
         setLoading(true);
         return signInWithPopup(auth, googleProvider);
     }
@@ -42,22 +43,23 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
-            console.log('current user', currentUser);
-            
-            // get and set JWT token
-            if(currentUser){
-                axios.post(`${import.meta.env.VITE_API_URL}/jwt', {email: currentUser?.email}`)
-                .then(data =>{
-                    // console.log(data.data.token)
-                    localStorage.setItem('access_token', data.data.token)
-                })
-            }
-            else{
-                localStorage.removeItem('access_token')
-            }
+            // console.log('current user', currentUser);
+
+            // get and set token
+            // if (currentUser) {
+            //     axios.post('', { email: currentUser.email })
+            //         .then(data => {
+            //             // console.log(data.data.token)
+            //             localStorage.setItem('access-token', data.data.token)
+            //             setLoading(false);
+            //         })
+            // }
+            // else {
+            //     localStorage.removeItem('access-token')
+            // }
             setLoading(false);
 
-            
+
         });
         return () => {
             return unsubscribe();
@@ -67,6 +69,8 @@ const AuthProvider = ({ children }) => {
     const authInfo = {
         user,
         loading,
+        errorMsg,
+        setErrorMsg,
         createUser,
         signIn,
         googleSignIn,

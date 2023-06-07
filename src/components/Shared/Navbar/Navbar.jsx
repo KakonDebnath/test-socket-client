@@ -1,19 +1,22 @@
 import { Link } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
 
 
 const Navbar = () => {
-    // const {user} = useAuth();
+    const { user, logOut } = useAuth();
 
     const navOptions = <>
         <li><Link className="text-lg" to="/">Home</Link></li>
         <li><Link className="text-lg" to="/Instructors">Instructors</Link></li>
         <li><Link className="text-lg" to="/classes">Classes</Link></li>
-        {/* {
+        {
             user && <>
-             <li><Link className="text-lg" to="/Dashboard">Dashboard</Link></li>
-            <Link to="/"><img className="w-10 h-10 rounded-full" src="https://i.ibb.co/1ZZBTVM/customerhappiness.jpg" alt="" /></Link>
+                <li><Link className="text-lg" to="/dashboard">Dashboard</Link></li>
+                <div className="tooltip hover:tooltip-open tooltip-top mx-2" data-tip={user?.displayName}>
+                    <img className="w-10 h-10 rounded-lg " src={user?.photoURL ? user?.photoURL : "https://i.ibb.co/5Rcst90/proile.png"} />
+                </div>
             </>
-        } */}
+        }
     </>
     return (
         <>
@@ -38,12 +41,15 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="w-[30vw] md:w-[15vw]">
-                    <Link to="/">
-                        <button to="/signOut" className="btn btn-warning">Sign Out</button>
-                    </Link>
-                    <Link to="/login">
-                        <button className="btn btn-ghost">Login</button>
-                    </Link>
+                    {
+                        user ?
+                            <button onClick={() => logOut()} className="btn btn-ghost">Sign Out</button>
+                            : <Link to="/login">
+                                <button className="btn btn-ghost">Login</button>
+                            </Link>
+                    }
+
+
                 </div>
             </div>
         </>
