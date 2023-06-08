@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxios";
+import CardBtn from "../../../components/Button/CardBtn";
 
 
 
@@ -80,7 +81,7 @@ const AddClass = () => {
                     <input {...register("price", { required: true })} type="number" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter price" />
                 </div>
 
-                <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg focus:outline-none focus:shadow-outline w-3/12">Add Class</button>
+                <CardBtn style={"from-cyan-500 to-blue-500"}>Add Class</CardBtn>
                 </form>
             </div>
         </div>

@@ -3,7 +3,7 @@ import useAuth from "./useAuth";
 import useAxiosSecure from "./useAxios";
 
 const useClasses = () => {
-    const {user, loading} = useAuth()
+    const {user} = useAuth()
     const [axiosSecure] = useAxiosSecure();
     const { refetch, isLoading, data:classes = []} = useQuery({
         queryKey: ['classes', user?.email],

@@ -1,5 +1,5 @@
 
-const DashboardCard = ({children, icon, handleSubmit}) => {
+const DashboardCard = ({children, icon}) => {
     return (
 
         <div className="min-h-[200px] flex flex-col justify-center items-center bg-gradient-to-r from-blue-500 to-cyan-500 text-center rounded-2xl cursor-pointer hover:shadow-2xl transition-all">
