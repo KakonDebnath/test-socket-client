@@ -11,7 +11,6 @@ const Classes = () => {
     queryKey: ['allClasses'],
     queryFn: async () => {
       const response = await axios(`${import.meta.env.VITE_API_URL}/allClasses`)
-      console.log(response.data);
       return response.data;
     },
   })

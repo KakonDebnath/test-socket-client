@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 import CardBtn from "../../components/Button/CardBtn";
 import useAxiosSecure from "../../hooks/useAxios";
 
@@ -7,9 +8,21 @@ const ClassCard = ({aClass}) => {
 
   const handelSelectClick = (item) => {
     console.log(item);
+    item.selectedClassId = item._id;
+    item.payMentStatus = "unpaid";
+    
     axiosSecure.post("/selectedClass", item)
     .then((res) => {
-      console.log(res);
+      console.log(res.data);
+      if (res.data.insertedId) {
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Your work has been saved',
+            showConfirmButton: false,
+            timer: 1500
+        })
+    }
     }).catch((err) => {
       console.log(err);
     })
