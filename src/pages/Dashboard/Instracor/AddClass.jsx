@@ -11,7 +11,7 @@ const AddClass = () => {
     const imgbbApiKey = import.meta.env.VITE_IMGBB_APIKEY;
     const imgHostingUrl = `https://api.imgbb.com/1/upload?key=${imgbbApiKey}`
     const {user} = useAuth()
-    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, } = useForm();
   const onSubmit = async data => {
     console.log(data)
     data.price = parseFloat(data.price);
@@ -66,8 +66,8 @@ const AddClass = () => {
                 </div>
 
                 <div className="mb-4">
-                    <label htmlFor="instructorName" className="block text-gray-700 font-bold mb-2">Instructor Email:</label>
-                    <input {...register("instructorImage", { required: true })} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" defaultValue={user?.email} readOnly />
+                    <label htmlFor="instructorEmail" className="block text-gray-700 font-bold mb-2">Instructor Email:</label>
+                    <input {...register("email", { required: true })} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" defaultValue={user?.email} readOnly />
                 </div>
 
                 <div className="mb-4">
@@ -80,7 +80,7 @@ const AddClass = () => {
                     <input {...register("price", { required: true })} type="number" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter price" />
                 </div>
 
-                <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg focus:outline-none focus:shadow-outline w-3/12">Add</button>
+                <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg focus:outline-none focus:shadow-outline w-3/12">Add Class</button>
                 </form>
             </div>
         </div>

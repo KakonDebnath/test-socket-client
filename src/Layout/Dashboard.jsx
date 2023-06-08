@@ -1,8 +1,7 @@
-import { FaHospitalUser, FaTable, FaThList, FaUserGraduate, FaUsers } from "react-icons/fa";
+
 import LogoutBtn from "../components/Button/LogoutBtn";
 import useAuth from "../hooks/useAuth";
-import DashboardCard from "../pages/Dashboard/DashboardCard";
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import Sidebar from "../pages/Dashboard/Sidebar";
 
 
