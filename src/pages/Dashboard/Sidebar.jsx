@@ -11,6 +11,19 @@ const Sidebar = () => {
                     <p className=" md:text-xl text-center">Fancy Drawing School</p>
                 </div>
             </Link>
+
+            <ul>
+            <li>
+                    <NavLink
+                    to="/"
+                    className={({ isActive}) =>
+                        isActive ? " px-1 md:px-5 py-1 md:py-2 text-base md:text-xl rounded-xl text-black bg-white block transition-all duration-500" : "px-1 md:px-5 py-1 md:py-2 text-xl rounded-xl block"
+                    }
+                ><span className="flex items-center gap-2"><FaHome /> Go to Home</span>
+                </NavLink>
+                </li>
+            </ul>
+            <hr className="my-5"/>
             <ul className="flex flex-col gap-2">
                 <li>
                     <NavLink
@@ -55,18 +68,6 @@ const Sidebar = () => {
                         isActive ? " px-1 md:px-5 py-1 md:py-2 text-base md:text-xl rounded-xl text-black bg-white block transition-all duration-500" : "px-1 md:px-5 py-1 md:py-2 text-xl rounded-xl block"
                     }
                 ><span className="flex items-center gap-2"><FaUsers /> Manage Users</span>
-                </NavLink>
-                </li>
-            </ul>
-            <hr className="mt-10"/>
-            <ul>
-            <li>
-                    <NavLink
-                    to="/"
-                    className={({ isActive}) =>
-                        isActive ? " px-1 md:px-5 py-1 md:py-2 text-base md:text-xl rounded-xl text-black bg-white block transition-all duration-500" : "px-1 md:px-5 py-1 md:py-2 text-xl rounded-xl block"
-                    }
-                ><span className="flex items-center gap-2"><FaHome /> Go to Home</span>
                 </NavLink>
                 </li>
             </ul>
