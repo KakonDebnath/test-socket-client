@@ -2,7 +2,8 @@
 
 const Footer = () => {
     return (
-        <footer className="footer p-10 bg-base-200 text-base-content">
+        <div className="">
+            <footer className="footer p-3 md:p-10 bg-base-200 text-base-content">
             <div>
                 <span className="footer-title">Courses</span>
                 <a className="link link-hover">Airt</a>
@@ -36,6 +37,7 @@ const Footer = () => {
                 </div>
             </div>
         </footer>
+        </div>
     );
 };
 

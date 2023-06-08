@@ -1,26 +1,27 @@
 import { Link } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
+import LogoutBtn from "../../Button/LogoutBtn";
 
 
 const Navbar = () => {
-    const { user, logOut } = useAuth();
+    const { user} = useAuth();
 
     const navOptions = <>
         <li><Link className="text-lg" to="/">Home</Link></li>
-        <li><Link className="text-lg" to="/Instructors">Instructors</Link></li>
+        <li><Link className="text-lg" to="/instructors">Instructors</Link></li>
         <li><Link className="text-lg" to="/classes">Classes</Link></li>
         {
             user && <>
                 <li><Link className="text-lg" to="/dashboard">Dashboard</Link></li>
                 <div className="tooltip hover:tooltip-open tooltip-top mx-2" data-tip={user?.displayName}>
-                    <img className="w-10 h-10 rounded-lg " src={user?.photoURL ? user?.photoURL : "https://i.ibb.co/5Rcst90/proile.png"} />
+                    <img className="w-10 h-10 rounded-full " src={user?.photoURL ? user?.photoURL : "https://i.ibb.co/5Rcst90/proile.png"} />
                 </div>
             </>
         }
     </>
     return (
         <>
-            <div className="navbar fixed  justify-between z-50 bg-black text-white bg-opacity-30  max-w-7xl">
+            <div className="navbar md:fixed justify-start md:justify-between z-50 bg-black text-white bg-opacity-30  max-w-7xl">
                 <div className="navbar-start text-black">
                     <div className="dropdown ">
                         <label tabIndex={0} className="btn btn-ghost md:hidden text-white">
@@ -43,7 +44,7 @@ const Navbar = () => {
                 <div className="w-[30vw] md:w-[15vw]">
                     {
                         user ?
-                            <button onClick={() => logOut()} className="btn btn-ghost">Sign Out</button>
+                            <LogoutBtn></LogoutBtn>
                             : <Link to="/login">
                                 <button className="btn btn-ghost">Login</button>
                             </Link>
