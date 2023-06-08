@@ -7,7 +7,7 @@ import EmptyState from "../../components/Shared/EmptyState/EmptyState";
 
 
 const Classes = () => {
-  const { isLoading, isError, data: allClasses = [], error } = useQuery({
+  const {  data: allClasses = [],} = useQuery({
     queryKey: ['allClasses'],
     queryFn: async () => {
       const response = await axios(`${import.meta.env.VITE_API_URL}/allClasses`)

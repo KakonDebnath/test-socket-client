@@ -41,6 +41,12 @@ const AddClass = () => {
                                     showConfirmButton: false,
                                     timer: 1500
                                 })
+                            }else{
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Oops...',
+                                    text: 'Something went wrong!'
+                                  })
                             }
                         })
                 }

@@ -1,43 +1,75 @@
 import Swal from "sweetalert2";
 import CardBtn from "../../components/Button/CardBtn";
 import useAxiosSecure from "../../hooks/useAxios";
+import useAuth from "../../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 
-const ClassCard = ({aClass}) => {
+const ClassCard = ({ aClass }) => {
+  console.log(aClass);
   const [axiosSecure] = useAxiosSecure()
+  const { user } = useAuth();
+  const navigate = useNavigate();
 
   const handelSelectClick = (item) => {
     console.log(item);
-    item.selectedClassId = item._id;
-    item.payMentStatus = "unpaid";
-    
-    axiosSecure.post("/selectedClass", item)
-    .then((res) => {
-      console.log(res.data);
-      if (res.data.insertedId) {
-        Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Your work has been saved',
-            showConfirmButton: false,
-            timer: 1500
+
+    if (user && user.email) {
+      const selectedClass = {
+        selectedClassId: item._id,
+        image: item.image,
+        className: item.name,
+        available_seats: item.available_seats,
+        instructorName: item.instructorName,
+        instructorEmail: item.email,
+        paymentStatus: "unpaid",
+        price: item.price,
+        status: item.status,
+        email: user.email,
+      }
+
+      axiosSecure.post("/selectedClass", selectedClass)
+        .then((res) => {
+          console.log(res.data);
+          if (res.data.insertedId) {
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: 'Selected Class Successfully Added',
+              showConfirmButton: false,
+              timer: 1500
+            })
+          }
+        }).catch((err) => {
+          console.log(err);
         })
+    } else {
+      Swal.fire({
+        title: 'Please Login first to Select A Class',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Login now!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/login")
+        }
+      })
     }
-    }).catch((err) => {
-      console.log(err);
-    })
+
   }
 
 
   const { name, instructorName, availableSeats, price, image } = aClass;
   return (
     <div className={`class-card p-4 rounded-xl shadow-lg hover:shadow-2xl transition-all  `}>
-      <img src={image}/>
+      <img className="w-full" src={image} />
       <h2 className="text-lg font-bold mb-2">Class Name: {name}</h2>
       <p className="mb-2">Instructor: {instructorName}</p>
       <p className="mb-2">Available Seats: {availableSeats}</p>
       <p className="mb-2">Price: ${price}</p>
-      <CardBtn handleClickBtn={()=>handelSelectClick(aClass)} style={"from-cyan-500 to-blue-500"}>Select Class</CardBtn>
+      <CardBtn handleClickBtn={() => handelSelectClick(aClass)} style={"from-cyan-500 to-blue-500"} >Select Class</CardBtn>
     </div>
   );
 };
