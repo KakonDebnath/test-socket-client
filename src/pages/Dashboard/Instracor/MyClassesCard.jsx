@@ -26,7 +26,7 @@ const MyClassesCard = ({ classes }) => {
                         <tbody>
                             {
                                 classes.map((singleClass, i) =>
-                                    <tr key={i} className='transition-all duration-500 hover:bg-base-200'>
+                                    <tr key={i} className='transition-all duration-300 hover:bg-base-200'>
                                         <td>{i + 1}</td>
                                         <td>
                                             <div className="avatar">
@@ -43,7 +43,7 @@ const MyClassesCard = ({ classes }) => {
                                         </td>
                                         <td className='text-center'>{singleClass?.enrolledStudent || 0}</td>
                                         <td>
-                                            <p className={`${singleClass?.adminFeedback && "bg-red-500 text-white text-center rounded-md"}`}>
+                                            <p className={`${singleClass?.adminFeedback && " text-center font-bold text-black "}`}>
                                                 {singleClass?.adminFeedback || "Not Available"}
                                             </p>
                                         </td>

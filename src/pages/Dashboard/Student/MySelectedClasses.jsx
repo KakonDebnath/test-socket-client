@@ -3,12 +3,14 @@ import CardBtn from "../../../components/Button/CardBtn";
 import useSelectedClass from "../../../hooks/useSelectedClass";
 import EmptyState from "../../../components/Shared/EmptyState/EmptyState";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../../hooks/useAxios";
 
 const MySelectedClasses = () => {
     const [selectedClasses, refetch] = useSelectedClass();
     console.log(selectedClasses);
+    const [axiosSecure] = useAxiosSecure();
     const handleDelete = (id) => {
-        console.log("Clicked", id);
+        // console.log("Clicked", id);
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -19,10 +21,8 @@ const MySelectedClasses = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`${import.meta.env.VITE_API_URL}/selectedClass/${id}`, {
-                    method: 'DELETE'
-                })
-                    .then(res => res.json())
+                axiosSecure.delete(`/selectedClass/${id}`)
+                    .then(res => res.data)
                     .then(data => {
                         if (data.deletedCount > 0) {
                             refetch();
@@ -30,15 +30,25 @@ const MySelectedClasses = () => {
                                 'Deleted!',
                                 'Your file has been deleted.',
                                 'success'
-                            )
-                        }else{
+                            );
+                        } else {
                             Swal.fire({
                                 icon: 'error',
                                 title: 'Oops...',
-                                text: 'Something went wrong!'
-                              })
+                                text: 'Something went wrong!',
+                            });
                         }
                     })
+                    .catch(error => {
+                        console.error(error);
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Something went wrong!',
+                        });
+                    });
+
+
             }
         })
     }
@@ -49,26 +59,26 @@ const MySelectedClasses = () => {
                 selectedClasses && Array.isArray(selectedClasses) && selectedClasses.length > 0 ?
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-5 justify-items-center mx-auto">
                         {
-                            selectedClasses?.map(classes=><div key={classes._id} className="card card-compact w-72 bg-base-100 shadow-xl">
-                            <figure><img className="max-w-xs object-cover max-h-52 " src={classes?.image} alt="Shoes" /></figure>
-                            <div className="card-body">
-                                <h2 className="card-title">{classes?.className}</h2>
-                                <div className="flex  justify-between items-center">
-                                    <div>
-                                        <h3 className="font-bold">Instructor Name:</h3>
-                                        <p>{classes?.instructorName}</p>
+                            selectedClasses?.map(classes => <div key={classes._id} className="card card-compact w-72 bg-base-100 shadow-xl">
+                                <figure><img className="max-w-xs object-cover max-h-52 " src={classes?.image} alt="Shoes" /></figure>
+                                <div className="card-body">
+                                    <h2 className="card-title">{classes?.className}</h2>
+                                    <div className="flex  justify-between items-center">
+                                        <div>
+                                            <h3 className="font-bold">Instructor Name:</h3>
+                                            <p>{classes?.instructorName}</p>
+                                        </div>
+                                        <div>
+                                            <p className="font-bold">Price: $ {classes?.price}</p>
+                                            <p>Available Seats: {classes?.available_seats}</p>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <p className="font-bold">Price: $ {classes?.price}</p>
-                                        <p>Available Seats: {classes?.available_seats}</p>
+                                    <div className="card-actions justify-between">
+                                        <Link to="/dashboard/payment"><CardBtn style={"from-cyan-500 to-blue-500"}>Pay Now</CardBtn></Link>
+                                        <CardBtn handleClickBtn={() => handleDelete(classes?._id)} style={"from-red-500 to-yellow-500"}>Delete Class</CardBtn>
                                     </div>
                                 </div>
-                                <div className="card-actions justify-between">
-                                    <Link to="/dashboard/payment"><CardBtn style={"from-cyan-500 to-blue-500"}>Pay Now</CardBtn></Link>
-                                    <CardBtn handleClickBtn={() => handleDelete(classes?._id)} style={"from-red-500 to-yellow-500"}>Delete Class</CardBtn>
-                                </div>
-                            </div>
-                        </div>)
+                            </div>)
                         }
                     </div>
                     :

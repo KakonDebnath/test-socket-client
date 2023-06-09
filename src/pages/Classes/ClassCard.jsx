@@ -19,7 +19,7 @@ const ClassCard = ({ aClass }) => {
         selectedClassId: item._id,
         image: item.image,
         className: item.name,
-        available_seats: item.available_seats,
+        available_seats: item.availableSeats,
         instructorName: item.instructorName,
         instructorEmail: item.email,
         paymentStatus: "unpaid",
