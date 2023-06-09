@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 
 const ClassCard = ({ aClass }) => {
-  console.log(aClass);
+  // console.log(aClass);
   const [axiosSecure] = useAxiosSecure()
   const { user } = useAuth();
   const navigate = useNavigate();

@@ -1,15 +1,36 @@
-import { useState } from "react";
+
 import EmptyState from "../../../components/Shared/EmptyState/EmptyState";
 import useAxiosSecure from "../../../hooks/useAxios";
 import Swal from "sweetalert2";
 import useAllClasses from "../../../hooks/useAllClasses";
+import { useForm } from "react-hook-form";
+import { useState } from "react";
 
 
 const ManageClasses = () => {
    const [adminClasses, refetch] = useAllClasses()
    const [axiosSecure] = useAxiosSecure();
+   const [feedbackUpdateId, setFeedbackUpdateId] = useState("");
    // console.log(adminClasses);
 
+   const { register, handleSubmit } = useForm();
+   const onSubmit = data => {
+      // console.log(data, feedbackUpdateId, data)
+      axiosSecure.patch(`/admin/feedback/${feedbackUpdateId}`,data)
+               .then(res => {
+                  if (res.data.modifiedCount > 0) {
+                     refetch();
+                     Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Successfully Send to Instructor',
+                        showConfirmButton: false,
+                        timer: 1500
+                     })
+                     window.feedbackModal.close();
+                  }
+               })
+   };
 
 
    // handleApproved btn
@@ -25,7 +46,7 @@ const ManageClasses = () => {
          confirmButtonText: 'Yes, Approved it!'
       }).then((result) => {
          if (result.isConfirmed) {
-            axiosSecure.patch(`/admin/classes/${id}`, {status: "approved"})
+            axiosSecure.patch(`/admin/classes/${id}`, { status: "approved" })
                .then(res => {
                   console.log(res.data)
                   if (res.data.modifiedCount > 0) {
@@ -50,12 +71,12 @@ const ManageClasses = () => {
          // text: "You won't be able to revert this!",
          icon: 'warning',
          showCancelButton: true,
-         confirmButtonColor: '#d33', 
+         confirmButtonColor: '#d33',
          cancelButtonColor: '#36D399',
          confirmButtonText: 'Yes, Deny it!'
       }).then((result) => {
          if (result.isConfirmed) {
-            axiosSecure.patch(`/admin/classes/${id}`, {status: "denied"})
+            axiosSecure.patch(`/admin/classes/${id}`, { status: "denied" })
                .then(res => {
                   console.log(res.data)
                   if (res.data.modifiedCount > 0) {
@@ -74,7 +95,8 @@ const ManageClasses = () => {
    }
    const handleFeedback = (id) => {
       window.feedbackModal.showModal();
-      console.log(id);
+      // console.log(id);
+      setFeedbackUpdateId(id)
    };
 
 
@@ -107,17 +129,20 @@ const ManageClasses = () => {
                               <button disabled={adClass.status === "approved" || adClass.status === "denied"}
                                  onClick={() => handleDeny(adClass._id)} className="btn btn-sm btn-error">Deny</button>
                            </div>
-                        </div>)
+                        </div>
+
+                     )
 
                   }
 
-                  {/* You can open the modal using ID.showModal() method */}
+                  {/* Feedback modal You can open the modal using ID.showModal() method */}
 
                   <dialog id="feedbackModal" className="modal">
-                     <form method="dialog" className="modal-box">
+                     <form onSubmit={handleSubmit(onSubmit)} method="dialog" className="modal-box w-9/12 md:w-6/12 ">
                         <button htmlFor="my-modal-3" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" onClick={() => window.feedbackModal.close()}>✕</button>
-                        <h3 className="font-bold text-lg">Hello!</h3>
-                        <p className="py-4">Press ESC key or click on ✕ button to close</p>
+                        <h3 className="font-bold text-lg text-center py-5">Hello!</h3>
+                        <input {...register("feedback", { required: true })} type="text" placeholder="Type here" className="input input-bordered input-info w-full mb-10" />
+                        <button type="submit" className="btn btn-sm text-white btn-info relative left-1/2 -translate-x-1/2" defaultValue="">Feedback Send</button>
                      </form>
                   </dialog>
                </div>
