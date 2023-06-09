@@ -1,4 +1,4 @@
-import {useState } from "react";
+import { useState } from "react";
 import EmptyState from "../../../components/Shared/EmptyState/EmptyState";
 import useAxiosSecure from "../../../hooks/useAxios";
 import Swal from "sweetalert2";
@@ -15,7 +15,6 @@ const ManageClasses = () => {
    // handleApproved btn
    const handleApproved = (id) => {
       // console.log(id);
-
       Swal.fire({
          title: 'Are you sure?',
          // text: "You won't be able to revert this!",
@@ -26,10 +25,10 @@ const ManageClasses = () => {
          confirmButtonText: 'Yes, Approved it!'
       }).then((result) => {
          if (result.isConfirmed) {
-            axiosSecure.patch(`/admin/classes/${id}`)
+            axiosSecure.patch(`/admin/classes/${id}`, {status: "approved"})
                .then(res => {
                   console.log(res.data)
-                  if(res.data.modifiedCount > 0){
+                  if (res.data.modifiedCount > 0) {
                      refetch();
                      Swal.fire({
                         position: 'center',
@@ -37,16 +36,46 @@ const ManageClasses = () => {
                         title: 'Successfully Updated',
                         showConfirmButton: false,
                         timer: 1500
-                      })
+                     })
                   }
                })
          }
       })
-
-
    }
-
-
+   // handleDeny btn
+   const handleDeny = (id) => {
+      console.log(id);
+      Swal.fire({
+         title: 'Are you sure?',
+         // text: "You won't be able to revert this!",
+         icon: 'warning',
+         showCancelButton: true,
+         confirmButtonColor: '#d33', 
+         cancelButtonColor: '#36D399',
+         confirmButtonText: 'Yes, Deny it!'
+      }).then((result) => {
+         if (result.isConfirmed) {
+            axiosSecure.patch(`/admin/classes/${id}`, {status: "denied"})
+               .then(res => {
+                  console.log(res.data)
+                  if (res.data.modifiedCount > 0) {
+                     refetch();
+                     Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Successfully Updated',
+                        showConfirmButton: false,
+                        timer: 1500
+                     })
+                  }
+               })
+         }
+      })
+   }
+   const handleFeedback = (id) => {
+      window.feedbackModal.showModal();
+      console.log(id);
+   };
 
 
    return (
@@ -73,13 +102,24 @@ const ManageClasses = () => {
                            </div>
                            <div className="flex flex-col md:flex-row justify-between items-center px-5 py-2 md:py-5 gap-2">
 
-                              <button disabled={adClass.status === "approved"} onClick={() => handleApproved(adClass._id)} className="btn btn-sm btn-success">Approved</button>
-                              <button className="btn btn-sm btn-warning">Send Feedback</button>
-                              <button disabled={adClass.status === "approved"} className="btn btn-sm btn-error">Deny</button>
+                              <button disabled={adClass.status === "approved" || adClass.status === "denied"} onClick={() => handleApproved(adClass._id)} className="btn btn-sm btn-success">Approved</button>
+                              <button className="btn btn-sm btn-warning" onClick={() => handleFeedback(adClass._id)}>Send Feedback</button>
+                              <button disabled={adClass.status === "approved" || adClass.status === "denied"}
+                                 onClick={() => handleDeny(adClass._id)} className="btn btn-sm btn-error">Deny</button>
                            </div>
                         </div>)
 
                   }
+
+                  {/* You can open the modal using ID.showModal() method */}
+
+                  <dialog id="feedbackModal" className="modal">
+                     <form method="dialog" className="modal-box">
+                        <button htmlFor="my-modal-3" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" onClick={() => window.feedbackModal.close()}>✕</button>
+                        <h3 className="font-bold text-lg">Hello!</h3>
+                        <p className="py-4">Press ESC key or click on ✕ button to close</p>
+                     </form>
+                  </dialog>
                </div>
                :
                <>
