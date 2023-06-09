@@ -23,7 +23,7 @@ const Dashboard = () => {
             </div>
             <div className='flex'>
                 <Sidebar />
-                <div className='w-9/12 p-3 md:p-5'>
+                <div className='w-10/12 p-3 md:p-5'>
                     <Outlet />
                 </div>
             </div>

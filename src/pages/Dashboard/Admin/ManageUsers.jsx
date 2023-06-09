@@ -3,8 +3,6 @@ import useAuth from "../../../hooks/useAuth";
 import { FaTrashAlt, FaUser, FaUserCog } from "react-icons/fa"
 import EmptyState from "../../../components/Shared/EmptyState/EmptyState";
 import useAxiosSecure from "../../../hooks/useAxios";
-import useRole from "../../../hooks/useRole";
-
 
 
 
@@ -12,7 +10,7 @@ const ManageUsers = () => {
     const { user } = useAuth();
     const [axiosSecure] = useAxiosSecure()
     
-    const { data: users = [], refetch } = useQuery(['users'], async () => {
+    const { data: users = [] } = useQuery(['users'], async () => {
         const res = await axiosSecure.get("/users");
         return res.data;
     })
