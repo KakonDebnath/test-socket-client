@@ -5,7 +5,7 @@ import useAuth from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 
 
-const ClassCard = ({ aClass }) => {
+const ClassCard = ({ aClass, refetch }) => {
   // console.log(aClass);
   const [axiosSecure] = useAxiosSecure()
   const { user } = useAuth();
@@ -26,12 +26,14 @@ const ClassCard = ({ aClass }) => {
         price: item.price,
         status: item.status,
         email: user.email,
+        isSelected: "selected"
       }
 
       axiosSecure.post("/selectedClass", selectedClass)
         .then((res) => {
           console.log(res.data);
           if (res.data.insertedId) {
+            refetch();
             Swal.fire({
               position: 'center',
               icon: 'success',
@@ -57,11 +59,10 @@ const ClassCard = ({ aClass }) => {
         }
       })
     }
-
   }
 
 
-  const { name, instructorName, availableSeats, price, image } = aClass;
+  const { name, instructorName, availableSeats, price, image, isSelected } = aClass;
   return (
     <div className={`class-card p-4 rounded-xl shadow-lg hover:shadow-2xl transition-all  `}>
       <img className="w-full" src={image} />
@@ -69,7 +70,7 @@ const ClassCard = ({ aClass }) => {
       <p className="mb-2">Instructor: {instructorName}</p>
       <p className="mb-2">Available Seats: {availableSeats}</p>
       <p className="mb-2">Price: ${price}</p>
-      <CardBtn handleClickBtn={() => handelSelectClick(aClass)} style={"from-cyan-500 to-blue-500"} >Select Class</CardBtn>
+      <CardBtn isSelected={isSelected} handleClickBtn={() => handelSelectClick(aClass)} style={"from-cyan-500 to-blue-500"} >Select Class</CardBtn>
     </div>
   );
 };

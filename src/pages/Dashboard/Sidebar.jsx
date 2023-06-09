@@ -80,6 +80,15 @@ const Sidebar = () => {
                                     ><span className="flex items-center gap-2"><MdAddCard />My Selected Class</span>
                                     </NavLink>
                                 </li>
+                                <li>
+                                    <NavLink
+                                        to="/dashboard/myEnrolledClass"
+                                        className={({ isActive }) =>
+                                            isActive ? " px-1 md:px-5 py-1 md:py-2 text-base md:text-xl rounded-xl text-black bg-white block transition-all duration-500" : "px-1 md:px-5 py-1 md:py-2 text-xl rounded-xl block"
+                                        }
+                                    ><span className="flex items-center gap-2"><MdAddCard />My Enrolled Class</span>
+                                    </NavLink>
+                                </li>
                             </>
                 }
             </ul>
