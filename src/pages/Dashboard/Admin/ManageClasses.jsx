@@ -1,15 +1,60 @@
+import {useState } from "react";
 import EmptyState from "../../../components/Shared/EmptyState/EmptyState";
-import useClasses from "../../../hooks/useClasses";
+import useAxiosSecure from "../../../hooks/useAxios";
+import Swal from "sweetalert2";
+import useAllClasses from "../../../hooks/useAllClasses";
 
 
 const ManageClasses = () => {
-   const [, adminClasses] = useClasses();
-   console.log(adminClasses);
+   const [adminClasses, refetch] = useAllClasses()
+   const [axiosSecure] = useAxiosSecure();
+   // console.log(adminClasses);
+
+
+
+   // handleApproved btn
+   const handleApproved = (id) => {
+      // console.log(id);
+
+      Swal.fire({
+         title: 'Are you sure?',
+         // text: "You won't be able to revert this!",
+         icon: 'warning',
+         showCancelButton: true,
+         confirmButtonColor: '#36D399',
+         cancelButtonColor: '#d33',
+         confirmButtonText: 'Yes, Approved it!'
+      }).then((result) => {
+         if (result.isConfirmed) {
+            axiosSecure.patch(`/admin/classes/${id}`)
+               .then(res => {
+                  console.log(res.data)
+                  if(res.data.modifiedCount > 0){
+                     refetch();
+                     Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Successfully Updated',
+                        showConfirmButton: false,
+                        timer: 1500
+                      })
+                  }
+               })
+         }
+      })
+
+
+   }
+
+
+
+
    return (
       <>
          manageClasses
 
          {
+
             adminClasses && Array.isArray(adminClasses) && adminClasses.length > 0 ?
                <div className="pt-5 md:pt-10 grid grid-cols-1 md:grid-cols-3  gap-2 mb-10 px-0 md:px-3">
                   {
@@ -27,11 +72,13 @@ const ManageClasses = () => {
                               <p>Status: <span className={`capitalize text-white text-xs px-2 py-1 rounded-lg ${adClass?.status === "pending" ? "bg-yellow-500" : adClass?.status === "approved" ? "bg-green-500" : "bg-red-500 "}`}>{adClass?.status}</span></p>
                            </div>
                            <div className="flex flex-col md:flex-row justify-between items-center px-5 py-2 md:py-5 gap-2">
-                              <button className="btn btn-sm btn-success">Approved</button>
+
+                              <button disabled={adClass.status === "approved"} onClick={() => handleApproved(adClass._id)} className="btn btn-sm btn-success">Approved</button>
                               <button className="btn btn-sm btn-warning">Send Feedback</button>
-                              <button className="btn btn-sm btn-error">Deny</button>
+                              <button disabled={adClass.status === "approved"} className="btn btn-sm btn-error">Deny</button>
                            </div>
                         </div>)
+
                   }
                </div>
                :

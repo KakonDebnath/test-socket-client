@@ -11,31 +11,18 @@ const useClasses = () => {
         enabled: !loading,
         queryFn: async ()=>{
             const response = await axiosSecure.get(`/instructor/classes?email=${user?.email}`)
-            console.log("instructors class",response.data);
+            // console.log("instructors class",response.data);
             return response.data;
         }
       })
 
-    
 
-    const { refetch :adminClassRefetch, isLoading : adminClassLoading, data:adminClasses = []} = useQuery({
-        queryKey: ['adminClasses', user.email],
-        enabled: !loading,
-        queryFn: async ()=>{
-            const response = await axiosSecure.get("/admin/classes")
-            console.log("admin all classes",response.data);
-            return response.data;
-        }
-      })
 
 
       return [
         insClasses, 
-        adminClasses, 
         refetch, 
-        adminClassRefetch, 
         isLoading, 
-        adminClassLoading
     ]
 }
 

@@ -5,7 +5,7 @@ import useRole from "../../hooks/useRole";
 
 const Sidebar = () => {
     const [isUserRole] = useRole()
-    console.log(isUserRole);
+    // console.log(isUserRole);
     return (
         <div className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white  md:w-3/12  px-2  min-h-[100vh]">
             <Link>

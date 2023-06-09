@@ -11,7 +11,7 @@ const Dashboard = () => {
 
 
     const { user } = useAuth();
-    console.log(user);
+    // console.log(user);
     return (
         <>
             <div className="flex justify-between items-center pl-5 bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-3">
