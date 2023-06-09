@@ -60,7 +60,7 @@ const MySelectedClasses = () => {
                                     </div>
                                     <div>
                                         <p className="font-bold">Price: $ {classes?.price}</p>
-                                        <p>Available Seats: 20</p>
+                                        <p>Available Seats: {classes?.available_seats}</p>
                                     </div>
                                 </div>
                                 <div className="card-actions justify-between">
