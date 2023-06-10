@@ -1,22 +1,19 @@
 import { useQuery } from "@tanstack/react-query";
 import Footer from "../../components/Shared/Footer/Footer";
 import Navbar from "../../components/Shared/Navbar/Navbar";
-import ClassCard from "./ClassCard";
 import axios from "axios";
 import EmptyState from "../../components/Shared/EmptyState/EmptyState";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 
 
 const Classes = () => {
   const { user } = useAuth()
   const navigate = useNavigate()
   const [axiosSecure] = useAxiosSecure()
-  const [disabled, setDisabled] = useState(false);
-  const { refetch, data: allClasses = [] } = useQuery({
+  const { data: allClasses = [] } = useQuery({
     queryKey: ['allClasses'],
     queryFn: async () => {
       const response = await axios(`${import.meta.env.VITE_API_URL}/allClasses`)
@@ -104,7 +101,7 @@ const Classes = () => {
                 <p className="mb-2">Available Seats: {singleClass?.availableSeats}</p>
                 <p className="mb-2">Price: ${singleClass?.price}</p>
                 <button
-                  disabled={disabled}
+                  disabled={false}
                   onClick={() => handelSelectClick(singleClass)}
                   className={`bg-gradient-to-b text-white px-5 py-2 rounded-xl from-cyan-500 to-blue-500 transition-all hover:from-blue-500 hover:to-cyan-500`} >Select Class</button>
               </div>)

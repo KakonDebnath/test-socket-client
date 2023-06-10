@@ -59,8 +59,8 @@ const MySelectedClasses = () => {
                 selectedClasses && Array.isArray(selectedClasses) && selectedClasses.length > 0 ?
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-5 justify-items-center mx-auto">
                         {
-                            selectedClasses?.map(classes => <div key={classes._id} className="card card-compact w-72 bg-base-100 shadow-xl">
-                                <figure><img className="max-w-xs object-cover max-h-52 " src={classes?.image} alt="Shoes" /></figure>
+                            selectedClasses?.map(classes => <div key={classes._id} className="card card-compact md:w-72 bg-base-100 shadow-xl">
+                                <figure><img className="max-h-[200px] object-cover " src={classes?.image} alt="Shoes" /></figure>
                                 <div className="card-body">
                                     <h2 className="card-title">{classes?.className}</h2>
                                     <div className="flex  justify-between items-center">
@@ -74,7 +74,9 @@ const MySelectedClasses = () => {
                                         </div>
                                     </div>
                                     <div className="card-actions justify-between">
-                                        <Link to="/dashboard/payment"><CardBtn style={"from-cyan-500 to-blue-500"}>Pay Now</CardBtn></Link>
+                                    <Link to={`/dashboard/payment?price=${classes?.price}`}
+                                    >
+                                    <CardBtn style={"from-cyan-500 to-blue-500"}>Pay Now</CardBtn></Link>
                                         <CardBtn handleClickBtn={() => handleDelete(classes?._id)} style={"from-red-500 to-yellow-500"}>Delete Class</CardBtn>
                                     </div>
                                 </div>
