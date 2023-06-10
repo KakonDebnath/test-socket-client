@@ -7,7 +7,7 @@ const Sidebar = () => {
     const [isUserRole] = useRole()
     // console.log(isUserRole);
     return (
-        <div className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white  md:w-3/12  px-2  min-h-[100vh]">
+        <div className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white  md:w-3/12  px-2  min-h-[100vh]">
             <Link>
                 <div className="cursor-pointer p-5">
                     <img className="w-14 md:w-20 mx-auto" src="https://i.ibb.co/wJKQkbY/favpng-painting-graphic-design-brush.png" alt="" />

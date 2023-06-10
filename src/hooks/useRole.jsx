@@ -4,7 +4,7 @@ import axios from "axios";
 
 const useRole = () => {
     const {user, loading} = useAuth();
-    const {data: isUserRole, isLoading: isUserRoleLoading} = useQuery({
+    const {data: isUserRole, refetch: roleRefetch, isLoading: isUserRoleLoading} = useQuery({
         queryKey: ['isUserRole', user?.email],
         enabled: !loading,
         queryFn: async ()=>{
@@ -12,7 +12,7 @@ const useRole = () => {
             return result.data.role;
         }
     })
-    return [isUserRole, isUserRoleLoading]
+    return [isUserRole, roleRefetch, isUserRoleLoading]
 
 }
 export default useRole;
