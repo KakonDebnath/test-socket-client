@@ -6,7 +6,8 @@ import './CheckoutForm.css';
 import Swal from "sweetalert2";
 
 
-const CheckoutForm = ({ price }) => {
+const CheckoutForm = ({ price, selectClass}) => {
+    console.log(selectClass);
     const stripe = useStripe();
     const elements = useElements();
     const { user } = useAuth();
@@ -72,7 +73,7 @@ const CheckoutForm = ({ price }) => {
             console.log(confirmError);
         }
 
-        console.log('payment intent', paymentIntent)
+        // console.log('payment intent', paymentIntent)
         setProcessing(false)
         if (paymentIntent.status === 'succeeded') {
             setTransactionId(paymentIntent.id);
@@ -83,20 +84,23 @@ const CheckoutForm = ({ price }) => {
                 transactionId: paymentIntent.id,
                 price,
                 date: new Date(),
+                itemId: selectClass.selectedClassId,
+                itemImage: selectClass.image,
+                itemName: selectClass.className,
+                instructorEmail: selectClass.instructorEmail,
             }
             console.log(payment);
-            Swal.fire(
-                'Good job!',
-                `purchase has been confirmed!`,
-                'success'
-              )
-            // axiosSecure.post('/payments', payment)
-            //     .then(res => {
-            //         console.log(res.data);
-            //         if (res.data.result.insertedId) {
-            //             // display confirm
-            //         }
-            //     })
+            axiosSecure.post('/payments', payment)
+                .then(res => {
+                    console.log(res.data);
+                    if (res.data.insertedId) {
+                        Swal.fire(
+                            'Good job!',
+                            `purchase has been confirmed!`,
+                            'success'
+                          )
+                    }
+                })
         }
 
 
