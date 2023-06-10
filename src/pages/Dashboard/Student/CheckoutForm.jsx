@@ -4,10 +4,12 @@ import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxios";
 import './CheckoutForm.css';
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 
 const CheckoutForm = ({ price, selectClass }) => {
     console.log(selectClass);
+    const navigate = useNavigate()
     const stripe = useStripe();
     const elements = useElements();
     const { user } = useAuth();
@@ -94,7 +96,6 @@ const CheckoutForm = ({ price, selectClass }) => {
                 .then(res => {
                     console.log(res.data);
                     if (res.data.insertedId) {
-
                         axiosSecure
                             .delete("/payment/selectedClass", {
                                 params: {
@@ -109,6 +110,7 @@ const CheckoutForm = ({ price, selectClass }) => {
                                     'Your Payment Successfully Done!',
                                     'success'
                                   )
+                                navigate("/dashboard/paymentHistory");
                             })
                     }
                 })
