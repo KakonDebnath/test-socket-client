@@ -100,7 +100,7 @@ const Classes = () => {
               allClasses?.map(singleClass => 
               <div key={singleClass._id} className={`class-card p-4 rounded-xl shadow-lg hover:shadow-2xl transition-all ${singleClass?.availableSeats === 0 && "bg-red-400 text-white"}`}>
                 <img className="w-full max-h-[200px]" src={singleClass?.image} />
-                <h2 className="text-lg font-bold mb-2">Class Name: {singleClass?.name}</h2>
+                <h2 className="text-lg font-bold mb-2">Class Name: {singleClass?.className}</h2>
                 <p className="mb-2">Instructor: {singleClass?.instructorName}</p>
                 <p className="mb-2">Available Seats: {singleClass?.availableSeats}</p>
                 <p className="mb-2">Price: ${singleClass?.price}</p>

@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import useAuth from "../../../hooks/useAuth";
 import { FaTrashAlt } from "react-icons/fa"
 import EmptyState from "../../../components/Shared/EmptyState/EmptyState";
 import useAxiosSecure from "../../../hooks/useAxios";
