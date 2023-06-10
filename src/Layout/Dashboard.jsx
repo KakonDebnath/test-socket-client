@@ -14,12 +14,12 @@ const Dashboard = () => {
     // console.log(user);
     return (
         <>
-            <div className="flex justify-between items-center pl-5 bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-3">
+            <div className="flex justify-between items-center pl-5 bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-3 px-10">
                 <h1 className="text-2xl">Welcome back {user?.displayName}!</h1>
                 <div className="flex justify-around items-center gap-5">
-                <div className="tooltip hover:tooltip-open tooltip-bottom mx-2" data-tip={user?.email}>
-                    <img className="w-10 h-10 rounded-full " src={user?.photoURL ? user?.photoURL : "https://i.ibb.co/5Rcst90/proile.png"} />
-                </div>
+                    <div className="tooltip hover:tooltip-open tooltip-bottom mx-2" data-tip={user?.email}>
+                        <img className="w-10 h-10 rounded-full " src={user?.photoURL ? user?.photoURL : "https://i.ibb.co/5Rcst90/proile.png"} />
+                    </div>
                     <LogoutBtn></LogoutBtn>
                 </div>
             </div>

@@ -41,7 +41,7 @@ const MyClassesCard = ({ classes }) => {
                                         <td className={`capitalize`}>
                                             <p className={`text-white text-center rounded-lg ${singleClass?.status === "pending" ? "bg-yellow-500" : singleClass?.status === "approved" ? "bg-green-500" : "bg-red-500 "}`}>{singleClass?.status}</p>
                                         </td>
-                                        <td className='text-center'>{singleClass?.enrolledStudent || 0}</td>
+                                        <td className='text-center'>{singleClass?.totalEnrolledStudent || 0}</td>
                                         <td>
                                             <p className={`${singleClass?.adminFeedback && " text-center font-bold text-black "}`}>
                                                 {singleClass?.adminFeedback || "Not Available"}
