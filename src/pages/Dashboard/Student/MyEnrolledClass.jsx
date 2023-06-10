@@ -8,10 +8,10 @@ const MyEnrolledClass = () => {
     console.log(paymentData);
     return (
         <div>
-            myEnrolledClass
+            <h2 className="text-center text-2xl py-10 underline">My Enrolled Classes</h2>
             {
                 paymentData && Array.isArray(paymentData) && paymentData.length > 0 ?
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5 justify-items-center">
                         {
                             paymentData?.map(payment =>
                                 <div key={payment._id} className="card w-full md:w-96 bg-base-100 shadow-xl">

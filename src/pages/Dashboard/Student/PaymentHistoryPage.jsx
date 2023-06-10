@@ -9,7 +9,7 @@ const PaymentHistoryPage = () => {
     console.log(paymentData);
     return (
         <div>
-            Payment History
+            <h2 className="text-center text-2xl py-10 underline">My Payment History</h2>
             {
                 paymentData && Array.isArray(paymentData) && paymentData.length > 0 ?
                     <>

@@ -2,8 +2,10 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import Button from "../../components/Button/Button";
 import { Link } from "react-router-dom";
+import { Typewriter } from 'react-simple-typewriter'
 
 const BannerSection = () => {
+    
     return (
         <Carousel
             autoPlay={false}
@@ -16,7 +18,22 @@ const BannerSection = () => {
                 <div className="absolute bg-black bg-opacity-50 w-full h-full "></div>
                 <img src="https://i.ibb.co/BynKcrt/banner2-Custom.jpg" />
                 <div className="absolute top-1/2 -translate-y-1/2 left-20 ">
-                    <p className=" text-white text-5xl w-[40vw]  capitalize text-left mb-4 md:mb-10 ">earn Drawing and Painting from the Best Art Teachers</p>
+                    <p className=" text-white text-5xl w-[40vw]  capitalize text-left mb-4 md:mb-10 ">
+                        earn Drawing and Painting from the Best Art Teachers &nbsp;
+
+                        <span className="text-background" style={{ color: 'red', fontWeight: 'bold' }}>
+                            <Typewriter
+                                words={['Practice', 'Makes', 'A Man', 'Perfect!']}
+                                loop={0}
+                                cursor
+                                cursorStyle='_'
+                                typeSpeed={70}
+                                deleteSpeed={50}
+                                delaySpeed={1000}
+                            />
+                        </span>
+                    </p>
+
                     <Link to="/login"><Button className="">Enroll Now!</Button></Link>
                 </div>
             </div>

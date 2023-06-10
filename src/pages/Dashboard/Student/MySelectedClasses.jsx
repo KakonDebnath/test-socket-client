@@ -54,7 +54,7 @@ const MySelectedClasses = () => {
     }
     return (
         <>
-            <h2 className="text-center text-2xl underline pb-5">My Selected Class</h2>
+            <h2 className="text-center text-2xl py-10 underline">My Selected Classes</h2>
             {
                 selectedClasses && Array.isArray(selectedClasses) && selectedClasses.length > 0 ?
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-5 justify-items-center mx-auto">
