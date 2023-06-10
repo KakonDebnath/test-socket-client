@@ -7,9 +7,12 @@ import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import useRole from "../../hooks/useRole";
 
 
 const Classes = () => {
+  const [isUserRole] = useRole();
+  console.log(isUserRole);
   const { user } = useAuth()
   const navigate = useNavigate()
   const [axiosSecure] = useAxiosSecure()
@@ -94,16 +97,17 @@ const Classes = () => {
         allClasses && Array.isArray(allClasses) && allClasses.length > 0 ?
           <div className="pt-24 grid grid-cols-1 md:grid-cols-4  gap-5 mb-10 px-10">
             {
-              allClasses?.map(singleClass => <div key={singleClass._id} className={`class-card p-4 rounded-xl shadow-lg hover:shadow-2xl transition-all  `}>
+              allClasses?.map(singleClass => 
+              <div key={singleClass._id} className={`class-card p-4 rounded-xl shadow-lg hover:shadow-2xl transition-all ${singleClass?.availableSeats === 0 && "bg-red-400 text-white"}`}>
                 <img className="w-full max-h-[200px]" src={singleClass?.image} />
                 <h2 className="text-lg font-bold mb-2">Class Name: {singleClass?.name}</h2>
                 <p className="mb-2">Instructor: {singleClass?.instructorName}</p>
                 <p className="mb-2">Available Seats: {singleClass?.availableSeats}</p>
                 <p className="mb-2">Price: ${singleClass?.price}</p>
                 <button
-                  disabled={false}
+                  disabled={isUserRole === "admin" || isUserRole === "instructor" || singleClass?.availableSeats === 0}
                   onClick={() => handelSelectClick(singleClass)}
-                  className={`bg-gradient-to-b text-white px-5 py-2 rounded-xl from-cyan-500 to-blue-500 transition-all hover:from-blue-500 hover:to-cyan-500`} >Select Class</button>
+                  className="btn btn-warning" >Select Class</button>
               </div>)
             }
           </div>
