@@ -6,7 +6,7 @@ import './CheckoutForm.css';
 import Swal from "sweetalert2";
 
 
-const CheckoutForm = ({ price, selectClass}) => {
+const CheckoutForm = ({ price, selectClass }) => {
     console.log(selectClass);
     const stripe = useStripe();
     const elements = useElements();
@@ -77,7 +77,7 @@ const CheckoutForm = ({ price, selectClass}) => {
         setProcessing(false)
         if (paymentIntent.status === 'succeeded') {
             setTransactionId(paymentIntent.id);
-            
+
             // save payment information to the server
             const payment = {
                 email: user?.email,
@@ -94,11 +94,22 @@ const CheckoutForm = ({ price, selectClass}) => {
                 .then(res => {
                     console.log(res.data);
                     if (res.data.insertedId) {
-                        Swal.fire(
-                            'Good job!',
-                            `purchase has been confirmed!`,
-                            'success'
-                          )
+
+                        axiosSecure
+                            .delete("/payment/selectedClass", {
+                                params: {
+                                    email: user?.email,
+                                    selectedId: selectClass?.selectedClassId
+                                }
+                            })
+                            .then(res => {
+                                console.log("successfully removed",res.data);
+                                Swal.fire(
+                                    'Good job!',
+                                    'Your Payment Successfully Done!',
+                                    'success'
+                                  )
+                            })
                     }
                 })
         }
@@ -131,7 +142,7 @@ const CheckoutForm = ({ price, selectClass}) => {
             </form>
             {cardError && <p className="text-red-600 ml-8">{cardError}</p>}
             {transactionId && <p className="text-green-500 text-center text-xl">Your purchase has been confirmed! With TransactionId: {transactionId}</p>
-            
+
             }
         </>
     );

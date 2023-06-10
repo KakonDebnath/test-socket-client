@@ -77,7 +77,7 @@ const MySelectedClasses = () => {
                                     <Link to={`/dashboard/payment?selectClass=${JSON.stringify(classes)}`}
                                     >
                                     <CardBtn style={"from-cyan-500 to-blue-500"}>Pay Now</CardBtn></Link>
-                                        <CardBtn handleClickBtn={() => handleDelete(classes?._id)} style={"from-red-500 to-yellow-500"}>Delete Class</CardBtn>
+                                    <CardBtn handleClickBtn={() => handleDelete(classes?._id)} style={"from-red-500 to-yellow-500"}>Delete Class</CardBtn>
                                     </div>
                                 </div>
                             </div>)

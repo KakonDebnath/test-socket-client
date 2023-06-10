@@ -23,7 +23,8 @@ const BannerSection = () => {
 
                         <span className="text-background" style={{ color: 'red', fontWeight: 'bold' }}>
                             <Typewriter
-                                words={['Practice', 'Makes', 'A Man', 'Perfect!']}
+                                // words={['Practice', 'Makes', 'A Man', 'Perfect!']}
+                                words={['Practice Makes A Man Perfect']}
                                 loop={0}
                                 cursor
                                 cursorStyle='_'
@@ -46,7 +47,8 @@ const BannerSection = () => {
 
                         <span className="text-background" style={{ color: 'red', fontWeight: 'bold' }}>
                             <Typewriter
-                                words={['Practice', 'Makes', 'A Man', 'Perfect!']}
+                                words={['Practice Makes A Man Perfect']}
+                                // words={['Practice', 'Makes', 'A Man', 'Perfect!']}
                                 loop={0}
                                 cursor
                                 cursorStyle='_'
@@ -69,7 +71,8 @@ const BannerSection = () => {
 
                         <span className="text-background" style={{ color: 'red', fontWeight: 'bold' }}>
                             <Typewriter
-                                words={['Practice', 'Makes', 'A Man', 'Perfect!']}
+                                // words={['Practice', 'Makes', 'A Man', 'Perfect!']}
+                                words={['Practice Makes A Man Perfect']}
                                 loop={0}
                                 cursor
                                 cursorStyle='_'
@@ -92,7 +95,8 @@ const BannerSection = () => {
 
                         <span className="text-background" style={{ color: 'red', fontWeight: 'bold' }}>
                             <Typewriter
-                                words={['Practice', 'Makes', 'A Man', 'Perfect!']}
+                                // words={['Practice', 'Makes', 'A Man', 'Perfect!']}
+                                words={['Practice Makes A Man Perfect']}
                                 loop={0}
                                 cursor
                                 cursorStyle='_'
@@ -115,7 +119,8 @@ const BannerSection = () => {
 
                         <span className="text-background" style={{ color: 'red', fontWeight: 'bold' }}>
                             <Typewriter
-                                words={['Practice', 'Makes', 'A Man', 'Perfect!']}
+                                // words={['Practice', 'Makes', 'A Man', 'Perfect!']}
+                                words={['Practice Makes A Man Perfect']}
                                 loop={0}
                                 cursor
                                 cursorStyle='_'
