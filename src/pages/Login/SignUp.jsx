@@ -23,7 +23,7 @@ const SignUp = () => {
                     updateUserProfile(data?.name, data?.photo)
                         .then(() => {
                             const savedUser = {
-                                name: data?.name, email: data?.email
+                                name: data?.name, email: data?.email, image: data?.photo
                             }
                             fetch(`${import.meta.env.VITE_API_URL}/users`, {
                                 method: 'PUT',
