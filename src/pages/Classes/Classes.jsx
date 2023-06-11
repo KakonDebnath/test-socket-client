@@ -8,6 +8,7 @@ import useAxiosSecure from "../../hooks/useAxios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import useRole from "../../hooks/useRole";
+import SectionTitle from "../../components/SectionTitle/SectionTitle";
 
 
 const Classes = () => {
@@ -92,10 +93,13 @@ const Classes = () => {
   return (
     <>
       <Navbar />
+      <div className="pt-20 ">
+            <SectionTitle heading={"grow your carrier"} subheading={"try best"} imgUrl={"https://i.ibb.co/n1Bm5XN/class-19.jpg"}></SectionTitle>
+            </div>
 
       {
         allClasses && Array.isArray(allClasses) && allClasses.length > 0 ?
-          <div className="pt-24 grid grid-cols-1 md:grid-cols-4  gap-5 mb-10 px-10">
+          <div className=" grid grid-cols-1 md:grid-cols-3  gap-5 py-10 px-10">
             {
               allClasses?.map(singleClass => 
               <div key={singleClass._id} className={`class-card p-4 rounded-xl shadow-lg hover:shadow-2xl transition-all ${singleClass?.availableSeats === 0 && "bg-red-400 text-white"}`}>
@@ -107,7 +111,7 @@ const Classes = () => {
                 <button
                   disabled={isUserRole === "admin" || isUserRole === "instructor" || singleClass?.availableSeats === 0}
                   onClick={() => handelSelectClick(singleClass)}
-                  className="btn btn-warning" >Select Class</button>
+                  className="btn btn-warning btn-sm" >Select Class</button>
               </div>)
             }
           </div>

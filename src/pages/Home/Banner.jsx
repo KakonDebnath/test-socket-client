@@ -16,9 +16,9 @@ const BannerSection = () => {
         >
             <div className="relative">
                 <div className="absolute bg-black bg-opacity-50 w-full h-full "></div>
-                <img src="https://i.ibb.co/BynKcrt/banner2-Custom.jpg" />
+                <img src="https://i.ibb.co/QQsJ1Bd/banner6-Custom.jpg" />
                 <div className="absolute top-1/2 -translate-y-1/2 left-20 ">
-                    <h1 className=" text-white text-5xl w-[40vw]  capitalize text-left mb-4 md:mb-10 ">
+                    <h1 className=" text-white text-2xl md:text-5xl w-full md:w-[40vw]  capitalize text-left mb-4 md:mb-10 ">
                         earn Drawing and Painting from the Best Art Teachers &nbsp;
 
                         <span className="text-background" style={{ color: 'red', fontWeight: 'bold' }}>
@@ -42,7 +42,7 @@ const BannerSection = () => {
                 <div className="absolute bg-black bg-opacity-50 w-full h-full "></div>
                 <img src="https://i.ibb.co/RvpyLty/banner3-Custom.jpg" />
                 <div className="absolute top-1/2 -translate-y-1/2 left-20 ">
-                    <h1 className=" text-white text-5xl w-[40vw]  capitalize text-left mb-4 md:mb-10 ">
+                    <h1 className=" text-white text-2xl md:text-5xl w-full md:w-[40vw]  capitalize text-left mb-4 md:mb-10 ">
                         earn Drawing and Painting from the Best Art Teachers &nbsp;
 
                         <span className="text-background" style={{ color: 'red', fontWeight: 'bold' }}>
@@ -66,7 +66,7 @@ const BannerSection = () => {
                 <div className="absolute bg-black bg-opacity-50 w-full h-full "></div>
                 <img src="https://i.ibb.co/HrPSKZR/banner4-Custom.jpg" />
                 <div className="absolute top-1/2 -translate-y-1/2 left-20 ">
-                    <h1 className=" text-white text-5xl w-[40vw]  capitalize text-left mb-4 md:mb-10 ">
+                    <h1 className=" text-white text-2xl md:text-5xl w-full md:w-[40vw]  capitalize text-left mb-4 md:mb-10 ">
                         earn Drawing and Painting from the Best Art Teachers &nbsp;
 
                         <span className="text-background" style={{ color: 'red', fontWeight: 'bold' }}>
@@ -90,7 +90,7 @@ const BannerSection = () => {
                 <div className="absolute bg-black bg-opacity-50 w-full h-full "></div>
                 <img src="https://i.ibb.co/Q9scCr4/banner5-Custom.jpg" />
                 <div className="absolute top-1/2 -translate-y-1/2 left-20 ">
-                    <h1 className=" text-white text-5xl w-[40vw]  capitalize text-left mb-4 md:mb-10 ">
+                    <h1 className=" text-white text-2xl md:text-5xl w-full md:w-[40vw]  capitalize text-left mb-4 md:mb-10 ">
                         earn Drawing and Painting from the Best Art Teachers &nbsp;
 
                         <span className="text-background" style={{ color: 'red', fontWeight: 'bold' }}>
@@ -112,9 +112,9 @@ const BannerSection = () => {
             </div>
             <div className="relative">
                 <div className="absolute bg-black bg-opacity-50 w-full h-full "></div>
-                <img src="https://i.ibb.co/QQsJ1Bd/banner6-Custom.jpg" />
+                <img src="https://i.ibb.co/BynKcrt/banner2-Custom.jpg" />
                 <div className="absolute top-1/2 -translate-y-1/2 left-20 ">
-                    <h1 className=" text-white text-5xl w-[40vw]  capitalize text-left mb-4 md:mb-10 ">
+                    <h1 className=" text-white text-2xl md:text-5xl w-full md:w-[40vw]  capitalize text-left mb-4 md:mb-10 ">
                         earn Drawing and Painting from the Best Art Teachers &nbsp;
 
                         <span className="text-background" style={{ color: 'red', fontWeight: 'bold' }}>

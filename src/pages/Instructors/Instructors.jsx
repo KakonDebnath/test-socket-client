@@ -5,6 +5,7 @@ import useAuth from "../../hooks/useAuth";
 import InstructorCard from "./InstructorCard";
 import axios from "axios";
 import EmptyState from "../../components/Shared/EmptyState/EmptyState";
+import SectionTitle from "../../components/SectionTitle/SectionTitle";
 
 
 const Instructors = () => {
@@ -22,12 +23,15 @@ const Instructors = () => {
 
 
     return (
-        <>
+        <div className="">
             <Navbar />
+            <div className="pt-20 ">
+            <SectionTitle heading={"Meet Our Instructors"} subheading={"experienced"} imgUrl={"https://i.ibb.co/M6vsrJP/class-3.jpg"}></SectionTitle>
+            </div>
             {
                 instructors && Array.isArray(instructors) && instructors.length > 0 ? 
                 <>
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-5 pt-32 mb-10 px-10">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-5 px-10 py-10">
                     {
                         instructors?.map(instructor => <InstructorCard key={instructor?._id} instructor={instructor} />)
                     }
@@ -39,7 +43,7 @@ const Instructors = () => {
                 </>
             }
             <Footer />
-        </>
+        </div>
     );
 };
 
