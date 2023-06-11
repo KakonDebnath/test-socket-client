@@ -1,6 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import { MdAddCard, MdOutlineViewList } from "react-icons/md"
-import { FaGraduationCap, FaHome, FaLayerGroup, FaPaypal, FaUsers, FaWallet } from "react-icons/fa";
+import { FaGraduationCap, FaHome, FaPaypal, FaUsers, FaWallet } from "react-icons/fa";
 import useRole from "../../hooks/useRole";
 
 const Sidebar = () => {

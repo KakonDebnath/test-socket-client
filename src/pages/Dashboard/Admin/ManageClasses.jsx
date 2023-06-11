@@ -103,7 +103,7 @@ const ManageClasses = () => {
 
    return (
       <>
-         manageClasses
+         <h2 className="text-center text-3xl underline py-3">Manage Classes </h2>
 
          {
 
