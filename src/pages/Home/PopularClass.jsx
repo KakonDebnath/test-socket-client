@@ -43,7 +43,7 @@ const PopularClass = () => {
                                             </div>
                                         </div>
                                         <div className="card-actions justify-center">
-                                            <button className="btn btn-sm btn-warning mt-5">Buy Now</button>
+                                            <button className="btn btn-sm btn-info mt-5">Buy Now</button>
                                         </div>
                                     </div>
                                 </div>
