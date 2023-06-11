@@ -8,11 +8,8 @@ import EmptyState from "../../components/Shared/EmptyState/EmptyState";
 
 
 const Instructors = () => {
-
-    const { user, loading } = useAuth()
     const { data: instructors = [] } = useQuery({
-        queryKey: ['instructors', user.email],
-        enabled: !loading,
+        queryKey: ['instructors'],
         queryFn: async () => {
             const response = await axios(`${import.meta.env.VITE_API_URL}/allInstructors`);
             if (response) {
