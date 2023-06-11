@@ -16,6 +16,8 @@ import ManageClasses from "../pages/Dashboard/Admin/ManageClasses";
 import ManageUsers from "../pages/Dashboard/Admin/ManageUsers";
 import MyEnrolledClass from "../pages/Dashboard/Student/MyEnrolledClass";
 import PaymentHistoryPage from "../pages/Dashboard/Student/PaymentHistoryPage";
+import AdminRoute from "./AdminRoute";
+import InstructorRoute from "./InstructorRoute";
 
 const router = createBrowserRouter([
     {
@@ -37,10 +39,10 @@ const router = createBrowserRouter([
             { path: "payment", element: <PrivateRoute><Payment></Payment></PrivateRoute>},
             { path: "myEnrolledClass", element: <PrivateRoute><MyEnrolledClass></MyEnrolledClass></PrivateRoute>},
             { path: "paymentHistory", element: <PrivateRoute><PaymentHistoryPage></PaymentHistoryPage></PrivateRoute>},
-            { path: "addClass", element: <PrivateRoute><AddClass></AddClass></PrivateRoute>},
-            { path: "myClasses", element: <PrivateRoute><MyClasses></MyClasses></PrivateRoute>},
-            { path: "manageClasses", element: <PrivateRoute><ManageClasses></ManageClasses></PrivateRoute>},
-            { path: "manageUsers", element: <PrivateRoute><ManageUsers></ManageUsers></PrivateRoute>},
+            { path: "addClass", element: <InstructorRoute><AddClass></AddClass></InstructorRoute>},
+            { path: "myClasses", element: <InstructorRoute><MyClasses></MyClasses></InstructorRoute>},
+            { path: "manageClasses", element: <AdminRoute><ManageClasses></ManageClasses></AdminRoute>},
+            { path: "manageUsers", element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>},
         ]
     }
 ]);

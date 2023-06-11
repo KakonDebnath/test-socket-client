@@ -1,7 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import Footer from "../../components/Shared/Footer/Footer";
 import Navbar from "../../components/Shared/Navbar/Navbar";
-import useAuth from "../../hooks/useAuth";
 import InstructorCard from "./InstructorCard";
 import axios from "axios";
 import EmptyState from "../../components/Shared/EmptyState/EmptyState";

@@ -42,22 +42,23 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
-            setUser(currentUser);
             console.log('current user', currentUser);
-
+            
             // get and set token
             if (currentUser) {
+                setUser(currentUser);
+                setLoading(false);
                 axios.post('https://summer-camp-school-server-delta.vercel.app/jwt', { email: currentUser.email })
                     .then(data => {
                         // console.log(data.data.token)
                         localStorage.setItem('access-token', data.data.token)
-                        // setLoading(false);
                     })
             }
             else {
                 localStorage.removeItem('access-token')
+                setUser(null);
+                setLoading(false);
             }
-            setLoading(false);
 
 
         });
