@@ -1,3 +1,5 @@
+Website Name: Fancy Drawing School
+
 1. about this project
 
     - This Is a Drawing School for summer vacation
