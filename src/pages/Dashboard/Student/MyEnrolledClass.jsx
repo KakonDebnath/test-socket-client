@@ -14,7 +14,7 @@ const MyEnrolledClass = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5 justify-items-center">
                         {
                             paymentData?.map(payment =>
-                                <div key={payment._id} className="card w-full md:w-96 bg-base-100 shadow-xl">
+                                <div key={payment._id} className="card w-full md:w-96 border border-gray-50 pt-5 shadow-xl">
                                     <figure><img src={payment.itemImage} /></figure>
                                     <div className="card-body">
                                         <h2 className="card-title">

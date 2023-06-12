@@ -9,15 +9,15 @@ const PaymentHistoryPage = () => {
     console.log(paymentData);
     return (
         <div>
-            <h2 className="text-center text-2xl py-10 underline">My Payment History</h2>
+            <h2 className="text-center text-2xl mb-5 underline">My Payment History</h2>
             {
                 paymentData && Array.isArray(paymentData) && paymentData.length > 0 ?
                     <>
-                        <div className="overflow-x-auto">
+                        <div className="overflow-x">
                             <table className="table text-base">
                                 {/* head */}
                                 <thead>
-                                    <tr className="text-base bg-base-300 text-black">
+                                    <tr className="">
                                         <th>#</th>
                                         <th>Product Image</th>
                                         <th>Product Name</th>

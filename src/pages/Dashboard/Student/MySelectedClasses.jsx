@@ -54,14 +54,14 @@ const MySelectedClasses = () => {
     }
     return (
         <>
-            <h2 className="text-center text-2xl py-10 underline">My Selected Classes</h2>
+            <h2 className="text-center text-2xl md:py-10 underline">My Selected Classes</h2>
             {
                 selectedClasses && Array.isArray(selectedClasses) && selectedClasses.length > 0 ?
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-5 justify-items-center mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5 justify-items-center mb-5">
                         {
                             selectedClasses?.map(classes => 
-                            <div key={classes._id} className="card card-compact md:w-72 border border-gray-50 shadow-xl">
-                                <figure><img className="max-h-[200px] object-cover " src={classes?.image} alt="Shoes" /></figure>
+                            <div key={classes._id} className="card card-compact border w-96 md:w-auto border-gray-50 shadow-xl">
+                                <figure><img className="w-full h-[200px] object-cover " src={classes?.image} alt="Shoes" /></figure>
                                 <div className="card-body">
                                     <h2 className="card-title">{classes?.className}</h2>
                                     <div className="flex  justify-between items-center">
