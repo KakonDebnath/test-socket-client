@@ -1,8 +1,9 @@
 import { FaEnvelope, FaFacebook, FaInstagram, FaLinkedin, FaPhone, FaYoutube } from "react-icons/fa";
 import { Slide } from "react-awesome-reveal";
+import { Link } from "react-router-dom";
 
 const InstructorCard = ({ instructor }) => {
-   console.log(instructor);
+   // console.log(instructor);
    const { image, name, email } = instructor;
    return (
 
@@ -24,7 +25,7 @@ const InstructorCard = ({ instructor }) => {
                </div>
             </div>
             <div className="mt-3 flex justify-center">
-               <a href="#" className="text-indigo-500 font-bold hover:text-indigo-700">View Profile</a>
+               <Link className="text-indigo-500 font-bold hover:text-indigo-700">View Profile</Link>
             </div>
          </div>
       </Slide>

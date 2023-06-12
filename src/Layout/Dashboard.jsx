@@ -14,7 +14,7 @@ const Dashboard = () => {
                     <div className="flex justify-between items-center ">
                         <label htmlFor="my-drawer-2" className=" drawer-button lg:hidden"><FaAlignLeft></FaAlignLeft></label>
                         <div className="cursor-pointer text-right">
-                            <img className="w-14 md:w-20 mx-auto" src="https://i.ibb.co/wJKQkbY/favpng-painting-graphic-design-brush.png" alt="" />
+                            <img className="w-14 md:w-20 mx-auto" src="https://i.ibb.co/YTGmkSr/logo5.png" alt="" />
                             <p className=" md:text-xl text-center">Fancy Drawing School</p>
                         </div>
                     </div>

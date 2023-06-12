@@ -6,7 +6,7 @@ import dateFormat from "dateformat";
 
 const PaymentHistoryPage = () => {
     const [paymentData] = usePayments();
-    console.log(paymentData);
+    // console.log(paymentData);
     return (
         <div>
             <h2 className="text-center text-2xl mb-5 underline">My Payment History</h2>

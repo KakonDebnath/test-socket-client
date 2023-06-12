@@ -3,7 +3,7 @@ import { FaPencilAlt } from 'react-icons/fa';
 import EmptyState from '../../../components/Shared/EmptyState/EmptyState';
 
 const MyClassesCard = ({ classes }) => {
-    console.log(classes);
+    // console.log(classes);
     return (
         <div className="overflow-x-auto">
             {

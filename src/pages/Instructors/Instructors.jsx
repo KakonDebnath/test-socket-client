@@ -16,7 +16,7 @@ const Instructors = () => {
         queryFn: async () => {
             const response = await axios(`${import.meta.env.VITE_API_URL}/allInstructors`);
             if (response) {
-                console.log(response.data);
+                // console.log(response.data);
             }
             return response.data;
         }

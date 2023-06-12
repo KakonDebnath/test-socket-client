@@ -1,4 +1,4 @@
-import { FaListUl, FaPencilAlt} from "react-icons/fa";
+import { FaListUl } from "react-icons/fa";
 import { MdOutlineViewList } from "react-icons/md";
 import { Link } from "react-router-dom";
 
@@ -15,9 +15,8 @@ const InstructorDashboard = () => {
             <Link to="/dashboard/myClasses">
                 <div className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-blue-400 text-2xl text-white cursor-pointer rounded-xl hover:shadow-2xl md:h-64 h-40 flex justify-center items-center ">
                     <div>
-                    <p className="flex items-center gap-5 "><MdOutlineViewList />  Total Class 10</p>
-                    
-                    <p className=" flex items-center gap-5"><FaPencilAlt />  Active Class 10</p>
+                        <p className="flex text-2xl items-center gap-5 "><MdOutlineViewList />  My Classes</p>
+
                     </div>
                 </div>
             </Link>

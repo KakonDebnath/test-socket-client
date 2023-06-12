@@ -39,7 +39,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div to="/" className="cursor-pointer">
-                        <img className="w-14 md:w-20 mx-auto" src="https://i.ibb.co/wJKQkbY/favpng-painting-graphic-design-brush.png" alt="" />
+                        <img className="w-14 md:w-20 mx-auto" src="https://i.ibb.co/YTGmkSr/logo5.png" alt="" />
                         <a className=" normal-case text-base md:text-xl ">Fancy Drawing School</a>
                     </div>
                 </div>

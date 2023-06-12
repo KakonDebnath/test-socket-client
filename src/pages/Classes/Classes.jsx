@@ -14,7 +14,7 @@ import { Fade } from "react-awesome-reveal";
 
 const Classes = () => {
   const [isUserRole] = useRole();
-  console.log(isUserRole);
+  // console.log(isUserRole);
   const { user } = useAuth()
   const navigate = useNavigate()
   const [axiosSecure] = useAxiosSecure()
@@ -23,16 +23,13 @@ const Classes = () => {
     queryFn: async () => {
       const response = await axios(`${import.meta.env.VITE_API_URL}/allClasses`)
       if (response) {
-        console.log(response.data);
+        // console.log(response.data);
       }
       return response.data;
     },
   })
 
-  console.log(allClasses);
-
-
-
+  // console.log(allClasses);
 
   const handelSelectClick = (item) => {
     console.log(item);

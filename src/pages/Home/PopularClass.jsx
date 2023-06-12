@@ -10,7 +10,7 @@ const PopularClass = () => {
         queryFn: async () => {
             const response = await axios(`${import.meta.env.VITE_API_URL}/popularClasses`)
             if (response) {
-                console.log(response.data);
+                // console.log(response.data);
             }
             return response.data;
         },
@@ -32,7 +32,7 @@ const PopularClass = () => {
                                         </figure>
                                         <div className="card-body">
                                             <h2 className="card-title">{popularClass?.className}</h2>
-                                            <div className="md:flex justify-around">
+                                            <div className="text-lg">
                                                 <div className="text-md">
                                                     <h2 className="underline text-blue-500">Instructor:</h2>
                                                     <h3>{popularClass?.instructorName}</h3>
@@ -44,9 +44,6 @@ const PopularClass = () => {
                                                     <p>Available Seats: {popularClass?.availableSeats}</p>
                                                     <p>Total Enrolled Students: {popularClass?.totalEnrolledStudent}</p>
                                                 </div>
-                                            </div>
-                                            <div className="card-actions justify-center">
-                                                <button className="btn btn-sm btn-info mt-5">Buy Now</button>
                                             </div>
                                         </div>
                                     </div>

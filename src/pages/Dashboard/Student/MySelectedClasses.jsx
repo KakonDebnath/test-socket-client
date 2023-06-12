@@ -7,7 +7,7 @@ import useAxiosSecure from "../../../hooks/useAxios";
 
 const MySelectedClasses = () => {
     const [selectedClasses, refetch] = useSelectedClass();
-    console.log(selectedClasses);
+    // console.log(selectedClasses);
     const [axiosSecure] = useAxiosSecure();
     const handleDelete = (id) => {
         // console.log("Clicked", id);

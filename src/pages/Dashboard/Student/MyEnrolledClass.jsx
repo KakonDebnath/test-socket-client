@@ -5,7 +5,7 @@ import dateFormat from "dateformat";
 
 const MyEnrolledClass = () => {
     const [paymentData] = usePayments();
-    console.log(paymentData);
+    // console.log(paymentData);
     return (
         <div>
             <h2 className="text-center text-2xl py-10 underline">My Enrolled Classes</h2>

@@ -30,7 +30,7 @@ const Login = () => {
                     timer: 1500
                 })
                 navigate(from, { replace: true });
-                console.log(res.user);
+                // console.log(res.user);
             }).catch(err => {
                 Swal.fire({
                     icon: 'error',

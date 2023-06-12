@@ -14,7 +14,7 @@ const ManageUsers = () => {
         const res = await axiosSecure.get("/users");
         return res.data;
     })
-    console.log(users);
+    // console.log(users);
     // Handle Change role for users 
     const handleUserRoleChange = (email, role) => {
         console.log(email);
