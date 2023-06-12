@@ -18,7 +18,7 @@ const InstructorRoute = ({children}) => {
     if( user && isUserRole == "instructor"){
         return children;
     }else {
-        return <Navigate to="/dashboard" state={{ from: location }} replace={true}></Navigate>
+        return <Navigate to="/" state={{ from: location }} replace={true}></Navigate>
     }
 };
 
