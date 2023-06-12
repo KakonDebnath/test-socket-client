@@ -1,4 +1,4 @@
-import {  NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { MdAddCard, MdOutlineViewList } from "react-icons/md"
 import { FaGraduationCap, FaHome, FaPaypal, FaTachometerAlt, FaUsers, FaWallet } from "react-icons/fa";
 import useRole from "../../hooks/useRole";
@@ -22,9 +22,9 @@ const Sidebar = () => {
                     <h2>{user?.displayName}</h2>
                     <p className="text-base underline">{user?.email}</p>
                 </div>
-                <div className="flex items-center md:justify-center">
+                <div className="flex items-center md:justify-around mt-5">
                     <LogoutBtn></LogoutBtn>
-                    <input onClick={toggleTheme} type="checkbox" className="toggle toggle-primary"/>
+                    <input onClick={toggleTheme} type="checkbox" className="toggle toggle-primary" />
                 </div>
             </div>
 
@@ -33,7 +33,7 @@ const Sidebar = () => {
                     <NavLink
                         to="/"
                         className={({ isActive }) =>
-                            isActive ? " text-xl transition-all duration-500" : "px-1 md:px-5 py-1 md:py-2 text-base md:text-xl rounded-xl"
+                            isActive ? " text-black text-xl transition-all duration-500" : "px-1 md:px-5 py-1 md:py-2 text-base md:text-xl rounded-xl"
                         }
                     ><span className="flex items-center gap-2"><FaHome /> Go to Home</span>
                     </NavLink>
@@ -48,7 +48,7 @@ const Sidebar = () => {
                                 <NavLink
                                     to="/dashboard/adminHome"
                                     className={({ isActive }) =>
-                                        isActive ? " text-xl transition-all duration-500" : "px-1 md:px-5 py-1 md:py-2 text-base md:text-xl rounded-xl"
+                                        isActive ? " text-xl text-black transition-all duration-500" : "px-1 md:px-5 py-1 md:py-2 text-base md:text-xl rounded-xl"
                                     }
                                 >
                                     <span className="flex items-center gap-2  "><FaTachometerAlt /> Admin Home</span>
@@ -58,7 +58,7 @@ const Sidebar = () => {
                                 <NavLink
                                     to="/dashboard/manageClasses"
                                     className={({ isActive }) =>
-                                        isActive ? " text-xl transition-all duration-500" : "px-1 md:px-5 py-1 md:py-2 text-base md:text-xl rounded-xl"
+                                        isActive ? "text-black text-xl transition-all duration-500" : "px-1 md:px-5 py-1 md:py-2 text-base md:text-xl rounded-xl"
                                     }
                                 ><span className="flex items-center gap-2"><MdOutlineViewList /> Manage Class</span>
                                 </NavLink>
@@ -67,7 +67,7 @@ const Sidebar = () => {
                                 <NavLink
                                     to="/dashboard/manageUsers"
                                     className={({ isActive }) =>
-                                        isActive ? " text-xl transition-all duration-500" : "px-1 md:px-5 py-1 md:py-2 text-base md:text-xl rounded-xl"
+                                        isActive ? "text-black text-xl transition-all duration-500" : "px-1 md:px-5 py-1 md:py-2 text-base md:text-xl rounded-xl"
                                     }
                                 ><span className="flex items-center gap-2"><FaUsers /> Manage Users</span>
                                 </NavLink>
@@ -76,9 +76,19 @@ const Sidebar = () => {
                             <>
                                 <li>
                                     <NavLink
+                                        to="/dashboard/instructorHome"
+                                        className={({ isActive }) =>
+                                            isActive ? " text-black text-xl transition-all duration-500" : "px-1 md:px-5 py-1 md:py-2 text-base md:text-xl rounded-xl"
+                                        }
+                                    >
+                                        <span className="flex items-center gap-2  "><FaTachometerAlt />Instructor Home</span>
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink
                                         to="/dashboard/addClass"
                                         className={({ isActive }) =>
-                                            isActive ? "text-xl transition-all duration-500" : "px-1 md:px-5 py-1 md:py-2 text-base md:text-xl rounded-xl"
+                                            isActive ? " text-black text-xl transition-all duration-500" : "px-1 md:px-5 py-1 md:py-2 text-base md:text-xl rounded-xl"
                                         }
                                     ><span className="flex items-center gap-2"><MdAddCard />Add A Class</span>
                                     </NavLink>
@@ -87,7 +97,7 @@ const Sidebar = () => {
                                     <NavLink
                                         to="/dashboard/myClasses"
                                         className={({ isActive }) =>
-                                            isActive ? "text-xl transition-all duration-500" : "px-1 md:px-5 py-1 md:py-2 text-base md:text-xl rounded-xl"
+                                            isActive ? " text-black text-xl transition-all duration-500" : "px-1 md:px-5 py-1 md:py-2 text-base md:text-xl rounded-xl"
                                         }
                                     ><span className="flex items-center gap-2"><MdOutlineViewList /> My Classes</span>
                                     </NavLink>
@@ -96,9 +106,18 @@ const Sidebar = () => {
                             <>
                                 <li>
                                     <NavLink
+                                        to="/dashboard/studentHome"
+                                        className={({ isActive }) =>
+                                            isActive ? " text-black text-xl transition-all duration-500" : "px-1 md:px-5 py-1 md:py-2 text-base md:text-xl rounded-xl"
+                                        }
+                                    ><span className="flex items-center gap-2"><FaTachometerAlt />Student Home</span>
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink
                                         to="/dashboard/mySelectedClasses"
                                         className={({ isActive }) =>
-                                            isActive ? "text-xl transition-all duration-500" : "px-1 md:px-5 py-1 md:py-2 text-base md:text-xl rounded-xl"
+                                            isActive ? " text-black text-xl transition-all duration-500" : "px-1 md:px-5 py-1 md:py-2 text-base md:text-xl rounded-xl"
                                         }
                                     ><span className="flex items-center gap-2"><FaWallet />My Selected Class</span>
                                     </NavLink>
@@ -107,7 +126,7 @@ const Sidebar = () => {
                                     <NavLink
                                         to="/dashboard/myEnrolledClass"
                                         className={({ isActive }) =>
-                                            isActive ? "text-xl transition-all duration-500" : "px-1 md:px-5 py-1 md:py-2 text-base md:text-xl rounded-xl"
+                                            isActive ? " text-black text-xl transition-all duration-500" : "px-1 md:px-5 py-1 md:py-2 text-base md:text-xl rounded-xl"
                                         }
                                     ><span className="flex items-center gap-2"><FaGraduationCap />My Enrolled Class</span>
                                     </NavLink>
@@ -116,7 +135,7 @@ const Sidebar = () => {
                                     <NavLink
                                         to="/dashboard/paymentHistory"
                                         className={({ isActive }) =>
-                                            isActive ? "text-xl transition-all duration-500" : "px-1 md:px-5 py-1 md:py-2 text-base md:text-xl rounded-xl"
+                                            isActive ? " text-black text-xl transition-all duration-500" : "px-1 md:px-5 py-1 md:py-2 text-base md:text-xl rounded-xl"
                                         }
                                     ><span className="flex items-center gap-2"><FaPaypal />Payment History</span>
                                     </NavLink>

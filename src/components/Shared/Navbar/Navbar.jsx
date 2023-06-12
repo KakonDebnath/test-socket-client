@@ -2,10 +2,12 @@ import { Link } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import LogoutBtn from "../../Button/LogoutBtn";
 import useTheme from "../../../hooks/useTheme";
+import useRole from "../../../hooks/useRole";
 
 
 const Navbar = () => {
     const { user } = useAuth();
+    const [isUserRole] = useRole();
     const [toggleTheme] = useTheme()
 
     const navOptions = <>
@@ -14,7 +16,10 @@ const Navbar = () => {
         <li><Link className="text-lg" to="/classes">Classes</Link></li>
         {
             user && <>
-                <li><Link className="text-lg" to="/dashboard">Dashboard</Link></li>
+                <li><Link className="text-lg" to={
+                    isUserRole === "admin" ? '/dashboard/adminHome':
+                    isUserRole === "instructor" ? '/dashboard/instructorHome': '/dashboard/studentHome'
+                    }>Dashboard</Link></li>
                 <div className="tooltip hover:tooltip-open tooltip-top mx-2" data-tip={user?.displayName}>
                     <img className="w-10 h-10 rounded-full " src={user?.photoURL ? user?.photoURL : "https://i.ibb.co/5Rcst90/proile.png"} />
                 </div>
@@ -23,7 +28,7 @@ const Navbar = () => {
     </>
     return (
         <>
-            <div className="navbar md:fixed justify-start md:justify-between z-50 bg-opacity-30  max-w-7xl">
+            <div className="navbar md:fixed justify-start md:justify-between z-50 bg-opacity-30  max-w-7xl bg-base-100">
                 <div className="navbar-start">
                     <div className="dropdown z-10">
                         <label tabIndex={0} className="btn btn-ghost md:hidden ">
@@ -35,7 +40,7 @@ const Navbar = () => {
                     </div>
                     <div to="/" className="cursor-pointer">
                         <img className="w-14 md:w-20 mx-auto" src="https://i.ibb.co/wJKQkbY/favpng-painting-graphic-design-brush.png" alt="" />
-                        <a className=" normal-case text-base md:text-xl text-white">Fancy Drawing School</a>
+                        <a className=" normal-case text-base md:text-xl ">Fancy Drawing School</a>
                     </div>
                 </div>
                 <div className="navbar-end hidden md:flex">
