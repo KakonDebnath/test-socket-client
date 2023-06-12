@@ -23,7 +23,7 @@ const PopularClass = () => {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-5 px-3 md:px-10 mt-10">
                         {
                             popularClasses?.map(popularClass =>
-                                <div key={popularClass._id} className="card card-compact w-full md:w-96 bg-base-100 shadow-lg hover:shadow-2xl transition-all" style={{ height: '100%' }}>
+                                <div key={popularClass._id} className="card card-compact w-full md:w-96 border border-gray-100 shadow-lg hover:shadow-2xl transition-all" style={{ height: '100%' }}>
                                     <figure style={{ height: '50%' }}>
                                         <img src={popularClass?.image} alt="Shoes" style={{ height: '100%', width: '100%', objectFit: 'cover' }} />
                                     </figure>

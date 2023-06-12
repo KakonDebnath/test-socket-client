@@ -8,7 +8,7 @@ const MyClassesCard = ({ classes }) => {
         <div className="overflow-x-auto">
             {
                 classes && Array.isArray(classes) && classes.length > 0 ?
-                    <table className="table">
+                    <table className="table text-lg">
                         {/* head */}
                         <thead>
                             <tr className='bg-base-300'>

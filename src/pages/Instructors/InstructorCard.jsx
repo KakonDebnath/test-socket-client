@@ -5,13 +5,13 @@ const InstructorCard = ({ instructor }) => {
   console.log(instructor);
   const { image, name, email } = instructor;
   return (
-    <div className=" rounded overflow-hidden shadow hover:shadow-2xl transition-all duration-300 transform hover:rotateZ-50 origin-top p-6">
+    <div className=" rounded overflow-hidden shadow hover:shadow-2xl transition-all duration-300 transform hover:rotateZ-50 origin-top p-6 border border-gray-100">
       <img className="w-full md:h-40 rounded" src={image} alt="Instructor Image" />
       <div className="pt-4">
           <h2 className="font-bold text-xl mb-3 capitalize">{name}</h2>
         <div className="mb-5">
-          <p className="text-gray-700 text-base flex items-center gap-3"><FaEnvelope /> {email}</p>
-          <p className="text-gray-700 text-base flex items-center gap-3"><FaPhone />+8801701245965</p>
+          <p className="flex items-center gap-3"><FaEnvelope /> {email}</p>
+          <p className="flex items-center gap-3"><FaPhone />+8801701245965</p>
         </div>
         <div className="flex justify-center gap-5 text-xl">
           <span className="cursor-pointer hover:text-blue-500 hover:scale-125 transition-all"><FaFacebook /></span>

@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import LogoutBtn from "../../Button/LogoutBtn";
+import useTheme from "../../../hooks/useTheme";
 
 
 const Navbar = () => {
-    const { user} = useAuth();
+    const { user } = useAuth();
+    const [toggleTheme] = useTheme()
 
     const navOptions = <>
         <li><Link className="text-lg" to="/">Home</Link></li>
@@ -49,8 +51,9 @@ const Navbar = () => {
                                 <button className="btn btn-ghost">Login</button>
                             </Link>
                     }
-
-
+                </div>
+                <div>
+                    <input onClick={toggleTheme} type="checkbox" className="toggle toggle-primary"/>
                 </div>
             </div>
         </>

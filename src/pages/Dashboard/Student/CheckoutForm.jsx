@@ -104,12 +104,12 @@ const CheckoutForm = ({ price, selectClass }) => {
                                 }
                             })
                             .then(res => {
-                                console.log("successfully removed",res.data);
+                                console.log("successfully removed", res.data);
                                 Swal.fire(
                                     'Good job!',
                                     'Your Payment Successfully Done!',
                                     'success'
-                                  )
+                                )
                                 navigate("/dashboard/paymentHistory");
                             })
                     }
@@ -121,7 +121,7 @@ const CheckoutForm = ({ price, selectClass }) => {
 
     return (
         <>
-            <form className="w-2/3 m-8" onSubmit={handleSubmit}>
+            <form className="" onSubmit={handleSubmit}>
                 <CardElement
                     options={{
                         style: {
@@ -138,9 +138,11 @@ const CheckoutForm = ({ price, selectClass }) => {
                         },
                     }}
                 />
-                <button className="btn btn-primary mt-4 px-10 " type="submit" disabled={!stripe || !clientSecret || processing}>
-                    Pay Now
-                </button>
+                <div className="flex justify-center md:justify-start">
+                    <button className="btn btn-primary btn-sm md:btn-md  px-5 md:px-10 " type="submit" disabled={!stripe || !clientSecret || processing}>
+                        Pay Now
+                    </button>
+                </div>
             </form>
             {cardError && <p className="text-red-600 ml-8">{cardError}</p>}
             {transactionId && <p className="text-green-500 text-center text-xl">Your purchase has been confirmed! With TransactionId: {transactionId}</p>

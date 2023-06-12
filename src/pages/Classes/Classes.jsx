@@ -102,7 +102,7 @@ const Classes = () => {
           <div className=" grid grid-cols-1 md:grid-cols-3  gap-5 py-10 px-10">
             {
               allClasses?.map(singleClass => 
-              <div key={singleClass._id} className={`class-card p-4 rounded-xl shadow-lg hover:shadow-2xl transition-all ${singleClass?.availableSeats === 0 && "bg-red-400 text-white"}`}>
+              <div key={singleClass._id} className={`class-card p-4 rounded-xl shadow-lg hover:shadow-2xl border border-gray-100 transition-all ${singleClass?.availableSeats === 0 && "bg-red-400 text-white"}`}>
                 <img className="w-full max-h-[200px]" src={singleClass?.image} />
                 <h2 className="text-lg font-bold mb-2">Class Name: {singleClass?.className}</h2>
                 <p className="mb-2">Instructor: {singleClass?.instructorName}</p>

@@ -108,10 +108,10 @@ const ManageClasses = () => {
          {
 
             adminClasses && Array.isArray(adminClasses) && adminClasses.length > 0 ?
-               <div className="pt-5 md:pt-10 grid grid-cols-1 md:grid-cols-3  gap-2 mb-10 px-0 md:px-3">
+               <div className="pt-5 md:pt-10 grid grid-cols-1 md:grid-cols-3  gap-2 md:gap-5 mb-10 px-0 md:px-3">
                   {
                      adminClasses?.map(adClass =>
-                        <div key={adClass._id} className={`class-card rounded-xl shadow-lg hover:shadow-2xl transition-all `}>
+                        <div key={adClass._id} className={`class-card rounded-xl shadow-lg hover:shadow-2xl transition-all border-gray-100 border `}>
                            <img className="w-full max-h-[200px] rounded-t-xl" src={adClass?.image} />
                            <div className="p-4">
                               <h2 className="text-lg font-bold mb-2 capitalize">{adClass?.className} </h2>

@@ -57,33 +57,33 @@ const AddClass = () => {
             <div className="w-full px-5 md:px-10 lg:px-20">
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="mb-4">
-                    <label htmlFor="className" className="block text-gray-700 font-bold mb-2">Class Name:</label>
-                    <input {...register("className", { required: true })} type="text" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter class name" />
+                    <label htmlFor="className" className="block  font-bold mb-2">Class Name:</label>
+                    <input {...register("className", { required: true })} type="text" className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter class name" />
                 </div>
 
                 <div className="mb-4">
-                    <label htmlFor="classImage" className="block text-gray-700 font-bold mb-2">Class Image:</label>
-                    <input {...register("image", { required: true })} type="file" accept="image/*" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+                    <label htmlFor="classImage" className="block  font-bold mb-2">Class Image:</label>
+                    <input {...register("image", { required: true })} type="file" accept="image/*" className="shadow appearance-none border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline" />
                 </div>
 
                 <div className="mb-4">
-                    <label htmlFor="instructorName" className="block text-gray-700 font-bold mb-2">Instructor Name:</label>
-                    <input {...register("instructorName", { required: true })} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" defaultValue={user?.displayName} readOnly />
+                    <label htmlFor="instructorName" className="block  font-bold mb-2">Instructor Name:</label>
+                    <input {...register("instructorName", { required: true })} className="shadow appearance-none border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline" defaultValue={user?.displayName} readOnly />
                 </div>
 
                 <div className="mb-4">
-                    <label htmlFor="instructorEmail" className="block text-gray-700 font-bold mb-2">Instructor Email:</label>
-                    <input {...register("email", { required: true })} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" defaultValue={user?.email} readOnly />
+                    <label htmlFor="instructorEmail" className="block  font-bold mb-2">Instructor Email:</label>
+                    <input {...register("email", { required: true })} className="shadow appearance-none border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline" defaultValue={user?.email} readOnly />
                 </div>
 
                 <div className="mb-4">
-                    <label htmlFor="availableSeats" className="block text-gray-700 font-bold mb-2">Available Seats:</label>
-                    <input {...register("availableSeats", { required: true })} type="number" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter available seats" />
+                    <label htmlFor="availableSeats" className="block  font-bold mb-2">Available Seats:</label>
+                    <input {...register("availableSeats", { required: true })} type="number" className="shadow appearance-none border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter available seats" />
                 </div>
 
                 <div className="mb-4">
-                    <label htmlFor="price" className="block text-gray-700 font-bold mb-2">Price:</label>
-                    <input {...register("price", { required: true })} type="number" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter price" />
+                    <label htmlFor="price" className="block font-bold mb-2">Price:</label>
+                    <input {...register("price", { required: true })} type="number" className="shadow appearance-none border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter price" />
                 </div>
 
                 <button className="btn btn-info text-white">Add A Class</button>

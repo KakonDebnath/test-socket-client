@@ -53,16 +53,16 @@ const ManageUsers = () => {
 
     return (
         <div>
-            <div className="  bg-white rounded-lg">
+            <div className="  rounded-lg">
                 <h2 className="text-center text-3xl underline py-3">Manage User </h2>
-                <h2 className="uppercase font-bold">total user: {users.length} </h2>
-                <div className="overflow-x-auto w-full">
+                <h2 className="uppercase font-bold px-10 mb-5">total user: {users.length} </h2>
+                <div className="overflow-x-auto w-full pb-10">
                     {
                         users && Array.isArray(users) && users.length > 0 ? <>
-                            <table className="table w-full text-center text-sm md:text-base text-black capitalize">
+                            <table className="table w-full text-center text-sm capitalize">
                                 {/* head */}
                                 <thead>
-                                    <tr className="text-base bg-base-300">
+                                    <tr className="">
                                         <th>#</th>
                                         <th>Name</th>
                                         <th>Email</th>
@@ -75,7 +75,7 @@ const ManageUsers = () => {
                                 <tbody>
                                     {
                                         users?.map((user, i) =>
-                                            <tr key={user._id} className="hover:bg-base-200 transition-all">
+                                            <tr key={user._id} className="hover:bg-gray-50 hover:text-slate-950 transition-all">
                                                 <th>{i + 1}</th>
                                                 <td className="text-left">{user?.name}</td>
                                                 <td className="text-left lowercase">{user?.email}</td>
