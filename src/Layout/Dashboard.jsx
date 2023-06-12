@@ -1,32 +1,34 @@
-
-import LogoutBtn from "../components/Button/LogoutBtn";
-import useAuth from "../hooks/useAuth";
 import { Outlet } from "react-router-dom";
 import Sidebar from "../pages/Dashboard/Sidebar";
+import { FaAlignLeft } from "react-icons/fa";
 
 
 const Dashboard = () => {
 
-
-
-
-    const { user } = useAuth();
-    // console.log(user);
     return (
         <>
-            <div className="flex justify-between items-center pl-5 bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-3 px-10">
-                <h1 className="text-2xl">Welcome back {user?.displayName}!</h1>
-                <div className="flex justify-around items-center gap-5">
-                    <div className="tooltip hover:tooltip-open tooltip-bottom mx-2" data-tip={user?.email}>
-                        <img className="w-10 h-10 rounded-full " src={user?.photoURL ? user?.photoURL : "https://i.ibb.co/5Rcst90/proile.png"} />
+            <div className="drawer lg:drawer-open">
+                <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+                <div className="drawer-content flex flex-col mx-10 gap-5">
+                    {/* Page content here */}
+                    <div className="flex justify-between items-center ">
+                        <label htmlFor="my-drawer-2" className=" drawer-button lg:hidden"><FaAlignLeft></FaAlignLeft></label>
+                        <div className="cursor-pointer text-right">
+                            <img className="w-14 md:w-20 mx-auto" src="https://i.ibb.co/wJKQkbY/favpng-painting-graphic-design-brush.png" alt="" />
+                            <p className=" md:text-xl text-center">Fancy Drawing School</p>
+                        </div>
                     </div>
-                    <LogoutBtn></LogoutBtn>
-                </div>
-            </div>
-            <div className='flex'>
-                <Sidebar />
-                <div className='w-10/12 p-3 md:p-5'>
                     <Outlet />
+
+
+                </div>
+                <div className="drawer-side">
+                    <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
+                    <ul className="menu p-4 w-80 h-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white">
+                        {/* Sidebar content here */}
+                        <Sidebar />
+                    </ul>
+
                 </div>
             </div>
         </>

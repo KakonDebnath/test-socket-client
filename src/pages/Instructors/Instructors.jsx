@@ -5,9 +5,12 @@ import InstructorCard from "./InstructorCard";
 import axios from "axios";
 import EmptyState from "../../components/Shared/EmptyState/EmptyState";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
+import { useLocation } from "react-router-dom";
 
 
 const Instructors = () => {
+    const location = useLocation();
+    const noHeaderFooter = location.pathname.includes("/instructors")
     const { data: instructors = [] } = useQuery({
         queryKey: ['instructors'],
         queryFn: async () => {
@@ -19,11 +22,9 @@ const Instructors = () => {
         }
     })
 
-
-
     return (
         <div className="">
-            <Navbar />
+            {!noHeaderFooter || <Navbar />}
             <div className="pt-20 ">
             <SectionTitle heading={"Meet Our Instructors"} subheading={"experienced"} imgUrl={"https://i.ibb.co/M6vsrJP/class-3.jpg"}></SectionTitle>
             </div>
@@ -41,7 +42,7 @@ const Instructors = () => {
                 <EmptyState message={"No instructors found"}></EmptyState>
                 </>
             }
-            <Footer />
+            {!noHeaderFooter || <Footer />}
         </div>
     );
 };

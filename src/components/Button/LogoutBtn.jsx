@@ -2,6 +2,7 @@
 import { useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import Swal from 'sweetalert2';
+import { FaSignOutAlt } from 'react-icons/fa';
 
 const LogoutBtn = () => {
     const navigate = useNavigate()
@@ -18,7 +19,7 @@ const LogoutBtn = () => {
                   })
                   navigate("/");
             })
-        }} className="btn btn-ghost">Sign Out</button>
+        }} className="btn btn-ghost"> <FaSignOutAlt></FaSignOutAlt> Sign Out</button>
     );
 };
 

@@ -1,3 +1,4 @@
+import Footer from "../../components/Shared/Footer/Footer";
 import Navbar from "../../components/Shared/Navbar/Navbar";
 import Instructors from "../Instructors/Instructors";
 import BannerSection from "./Banner";
@@ -13,6 +14,7 @@ const Home = () => {
            <BannerSection></BannerSection>
            <PopularClass></PopularClass>
            <Instructors></Instructors>
+           <Footer></Footer>
         </>
     );
 };

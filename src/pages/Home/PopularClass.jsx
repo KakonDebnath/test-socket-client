@@ -27,7 +27,7 @@ const PopularClass = () => {
                                     <figure style={{ height: '50%' }}>
                                         <img src={popularClass?.image} alt="Shoes" style={{ height: '100%', width: '100%', objectFit: 'cover' }} />
                                     </figure>
-                                    <div className="card-body" style={{ height: '50%' }}>
+                                    <div className="card-body">
                                         <h2 className="card-title">{popularClass?.className}</h2>
                                         <div className="md:flex justify-around">
                                             <div className="text-md">
