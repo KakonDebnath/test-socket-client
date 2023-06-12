@@ -57,9 +57,9 @@ const Navbar = () => {
                             </Link>
                     }
                 </div>
-                <div>
-                    <input onClick={toggleTheme} type="checkbox" className="toggle toggle-primary"/>
-                </div>
+                <div className="tooltip hover:tooltip-open tooltip-top" data-tip="Change Theme">
+                        <input onClick={toggleTheme} type="checkbox" className="toggle toggle-primary" />
+                    </div>
             </div>
         </>
     );

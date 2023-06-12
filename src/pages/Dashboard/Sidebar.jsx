@@ -24,7 +24,10 @@ const Sidebar = () => {
                 </div>
                 <div className="flex items-center md:justify-around mt-5">
                     <LogoutBtn></LogoutBtn>
-                    <input onClick={toggleTheme} type="checkbox" className="toggle toggle-primary" />
+
+                    <div className="tooltip hover:tooltip-open tooltip-top" data-tip="Change Theme">
+                        <input onClick={toggleTheme} type="checkbox" className="toggle toggle-primary" />
+                    </div>
                 </div>
             </div>
 

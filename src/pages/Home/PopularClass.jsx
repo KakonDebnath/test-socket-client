@@ -16,7 +16,7 @@ const PopularClass = () => {
         },
     })
     return (
-        <div>
+        <>
             <SectionTitle subheading="best course" heading="Popular classes" imgUrl={'https://i.ibb.co/b2HfD18/class-23.jpg'}></SectionTitle>
             {
                 popularClasses && Array.isArray(popularClasses) && popularClasses.length > 0 ?
@@ -53,7 +53,7 @@ const PopularClass = () => {
                     :
                     <EmptyState message={"No Data Available"}></EmptyState>
             }
-        </div>
+        </>
     );
 };
 
