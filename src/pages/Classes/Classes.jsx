@@ -9,6 +9,7 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import useRole from "../../hooks/useRole";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
+import { Fade } from "react-awesome-reveal";
 
 
 const Classes = () => {
@@ -100,6 +101,9 @@ const Classes = () => {
       {
         allClasses && Array.isArray(allClasses) && allClasses.length > 0 ?
           <div className=" grid grid-cols-1 md:grid-cols-3  gap-5 py-10 px-10">
+            <Fade>
+
+
             {
               allClasses?.map(singleClass => 
               <div key={singleClass._id} className={`class-card p-4 rounded-xl shadow-lg hover:shadow-2xl border border-gray-100 transition-all ${singleClass?.availableSeats === 0 && "bg-red-400 text-white"}`}>
@@ -114,6 +118,7 @@ const Classes = () => {
                   className="btn btn-warning btn-sm" >Select Class</button>
               </div>)
             }
+                        </Fade>
           </div>
           :
           <EmptyState message={"No Data Available"}></EmptyState>

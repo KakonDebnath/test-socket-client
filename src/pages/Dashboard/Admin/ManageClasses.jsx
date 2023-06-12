@@ -123,7 +123,7 @@ const ManageClasses = () => {
                               </div>
                               <p>Status: <span className={`capitalize text-white text-xs px-2 py-1 rounded-lg ${adClass?.status === "pending" ? "bg-yellow-500" : adClass?.status === "approved" ? "bg-green-500" : "bg-red-500 "}`}>{adClass?.status}</span></p>
                            </div>
-                           <div className="flex flex-col md:flex-row justify-center items-center px-5 py-2 md:py-5 gap-2">
+                           <div className="flex flex-row justify-center items-center px-5 py-2 md:py-5 gap-2">
 
                               <button disabled={adClass.status === "approved" || adClass.status === "denied"} onClick={() => handleIsApproved(adClass._id,"approved")} className="btn btn-sm btn-success"><FaCheck size={20} /></button>
                               <button className="btn btn-sm btn-warning" onClick={() => handleFeedback(adClass._id)}><FaRegCommentDots size={20} /></button>
