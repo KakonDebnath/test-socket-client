@@ -1,3 +1,4 @@
+import { Slide } from "react-awesome-reveal";
 import EmptyState from "../../../components/Shared/EmptyState/EmptyState";
 import usePayments from "../../../hooks/usePayments";
 import dateFormat from "dateformat";
@@ -14,7 +15,8 @@ const MyEnrolledClass = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5 justify-items-center">
                         {
                             paymentData?.map(payment =>
-                                <div key={payment._id} className="card w-full md:w-96 border border-gray-50 pt-5 shadow-xl mb-10">
+                                <Slide key={payment._id} >
+                                <div className="card w-full md:w-96 border border-gray-50 shadow-xl mb-10">
                                     <figure><img src={payment.itemImage} /></figure>
                                     <div className="card-body">
                                         <h2 className="card-title">
@@ -25,6 +27,7 @@ const MyEnrolledClass = () => {
                                         <h2>Putsches Date: {dateFormat(payment.date, "dddd, mmmm dd, yyyy ")}</h2>
                                     </div>
                                 </div>
+                                </Slide>
                             )
                         }
                     </div> :
