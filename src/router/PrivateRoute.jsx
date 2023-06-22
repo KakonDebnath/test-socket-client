@@ -7,8 +7,7 @@ const PrivateRoute = ({ children }) => {
     const location = useLocation()
     if (loading) {
         return <div className="flex flex-col justify-center items-center h-screen">
-            <h2 className="mb-10">Loading Please Wait ...............</h2>
-            <img src="https://i.ibb.co/JpHyCW3/Spinner.gif" />
+            <span className="loading loading-bars loading-lg text-info"></span>
         </div>
     }
     if (user) {

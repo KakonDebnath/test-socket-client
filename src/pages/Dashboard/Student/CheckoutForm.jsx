@@ -12,11 +12,10 @@ const CheckoutForm = ({ price, selectClass }) => {
     const navigate = useNavigate()
     const stripe = useStripe();
     const elements = useElements();
-    const { user } = useAuth();
+    const { user, btnLoading, setBtnLoading } = useAuth();
     const [axiosSecure] = useAxiosSecure()
     const [cardError, setCardError] = useState('');
     const [clientSecret, setClientSecret] = useState('');
-    const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState('');
 
     useEffect(() => {
@@ -56,7 +55,7 @@ const CheckoutForm = ({ price, selectClass }) => {
             // console.log('payment method', paymentMethod)
         }
 
-        setProcessing(true)
+        setBtnLoading(true)
 
         const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(
             clientSecret,
@@ -76,8 +75,8 @@ const CheckoutForm = ({ price, selectClass }) => {
         }
 
         // console.log('payment intent', paymentIntent)
-        setProcessing(false)
         if (paymentIntent.status === 'succeeded') {
+            setBtnLoading(false)
             setTransactionId(paymentIntent.id);
 
             // save payment information to the server
@@ -138,9 +137,9 @@ const CheckoutForm = ({ price, selectClass }) => {
                         },
                     }}
                 />
-                <div className="flex justify-center md:justify-start">
-                    <button className="btn btn-primary btn-sm md:btn-md  px-5 md:px-10 " type="submit" disabled={!stripe || !clientSecret || processing}>
-                        Pay Now
+                <div className="flex justify-center mt-5 md:mt-10">
+                    <button className="btn btn-primary btn-sm md:btn-md px-5 md:px-10 " type="submit" disabled={!stripe || !clientSecret || btnLoading}>
+                        {btnLoading ? <>Pay Now <span className="loading loading-spinner text-primary"></span></> : "Pay Now"}
                     </button>
                 </div>
             </form>

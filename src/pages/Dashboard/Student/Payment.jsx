@@ -12,7 +12,7 @@ const Payment = () => {
     const selectClass = JSON.parse(selectItem);
     return (
         <div>
-            <h2 className="text-center md:text-left text-md md:text-2xl mb-10 underline">Complete Payment Now!</h2>
+            <h2 className="text-center text-md md:text-2xl mb-10 underline">Complete Payment Now!</h2>
 
             <Elements stripe={stripePromise}>
                 <CheckoutForm price={selectClass.price} selectClass={selectClass}></CheckoutForm>

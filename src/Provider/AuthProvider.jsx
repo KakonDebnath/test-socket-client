@@ -10,6 +10,7 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [btnLoading, setBtnLoading] = useState(false);
     const [errorMsg, setErrorMsg] = useState("");
 
     const googleProvider = new GoogleAuthProvider();
@@ -70,6 +71,8 @@ const AuthProvider = ({ children }) => {
     const authInfo = {
         user,
         loading,
+        btnLoading,
+        setBtnLoading,
         errorMsg,
         setErrorMsg,
         createUser,

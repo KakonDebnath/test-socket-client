@@ -112,10 +112,10 @@ const Classes = () => {
                 <button
                   disabled={isUserRole === "admin" || isUserRole === "instructor" || singleClass?.availableSeats === 0}
                   onClick={() => handelSelectClick(singleClass)}
-                  className="btn btn-warning btn-sm" >Select Class</button>
+                  className="btn btn-warning btn-sm">Select Class</button>
               </div>)
             }
-                        </Fade>
+            </Fade>
           </div>
           :
           <EmptyState message={"No Data Available"}></EmptyState>
