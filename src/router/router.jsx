@@ -11,7 +11,6 @@ import AddClass from "../pages/Dashboard/Instracor/AddClass";
 import MyClasses from "../pages/Dashboard/Instracor/MyClasses";
 import PrivateRoute from "./PrivateRoute";
 import MySelectedClasses from "../pages/Dashboard/Student/MySelectedClasses";
-import Payment from "../pages/Dashboard/Student/Payment";
 import ManageClasses from "../pages/Dashboard/Admin/ManageClasses";
 import ManageUsers from "../pages/Dashboard/Admin/ManageUsers";
 import MyEnrolledClass from "../pages/Dashboard/Student/MyEnrolledClass";
@@ -21,6 +20,10 @@ import InstructorRoute from "./InstructorRoute";
 import AdminDashboard from "../pages/Dashboard/Admin/AdminDashboard";
 import InstructorDashboard from "../pages/Dashboard/Instracor/InstructorDashboard";
 import StudentDashboard from "../pages/Dashboard/Student/StudentDashboard";
+import ChatPage from "../components/Chat/ChatPage";
+import SslPayments from "../pages/SslPayments/SslPayments";
+import BkashPayment from "../pages/Dashboard/Student/BkashPayment";
+import Payment from "../pages/Dashboard/Student/Payment";
 
 const router = createBrowserRouter([
     {
@@ -33,6 +36,8 @@ const router = createBrowserRouter([
             { path: "/signUp", element: <SignUp></SignUp> },
             { path: "/instructors", element: <Instructors></Instructors> },
             { path: "/classes", element: <Classes></Classes> },
+            { path: "/chat", element: <ChatPage /> },
+            { path: "/bkashPayment", element: <SslPayments/>},
         ],
     },
     {
@@ -40,6 +45,7 @@ const router = createBrowserRouter([
         children:[
             { path: "studentHome", element: <PrivateRoute><StudentDashboard></StudentDashboard></PrivateRoute>},
             { path: "mySelectedClasses", element: <PrivateRoute><MySelectedClasses></MySelectedClasses></PrivateRoute>},
+            // { path: "payment", element: <PrivateRoute><Payment></Payment></PrivateRoute>},
             { path: "payment", element: <PrivateRoute><Payment></Payment></PrivateRoute>},
             { path: "myEnrolledClass", element: <PrivateRoute><MyEnrolledClass></MyEnrolledClass></PrivateRoute>},
             { path: "paymentHistory", element: <PrivateRoute><PaymentHistoryPage></PaymentHistoryPage></PrivateRoute>},

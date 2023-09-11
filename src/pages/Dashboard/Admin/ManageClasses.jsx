@@ -17,20 +17,20 @@ const ManageClasses = () => {
    const { register, handleSubmit } = useForm();
    const onSubmit = data => {
       // console.log(data, feedbackUpdateId, data)
-      axiosSecure.patch(`/admin/feedback/${feedbackUpdateId}`,data)
-               .then(res => {
-                  if (res.data.modifiedCount > 0) {
-                     refetch();
-                     Swal.fire({
-                        position: 'center',
-                        icon: 'success',
-                        title: 'Successfully Send to Instructor',
-                        showConfirmButton: false,
-                        timer: 1500
-                     })
-                     window.feedbackModal.close();
-                  }
+      axiosSecure.patch(`/admin/feedback/${feedbackUpdateId}`, data)
+         .then(res => {
+            if (res.data.modifiedCount > 0) {
+               refetch();
+               Swal.fire({
+                  position: 'center',
+                  icon: 'success',
+                  title: 'Successfully Send to Instructor',
+                  showConfirmButton: false,
+                  timer: 1500
                })
+               window.feedbackModal.close();
+            }
+         })
    };
 
 
@@ -125,10 +125,16 @@ const ManageClasses = () => {
                            </div>
                            <div className="flex flex-row justify-center items-center px-5 py-2 md:py-5 gap-2">
 
-                              <button disabled={adClass.status === "approved" || adClass.status === "denied"} onClick={() => handleIsApproved(adClass._id,"approved")} className="btn btn-sm btn-success"><FaCheck size={20} /></button>
-                              <button className="btn btn-sm btn-warning" onClick={() => handleFeedback(adClass._id)}><FaRegCommentDots size={20} /></button>
-                              <button disabled={adClass.status === "approved" || adClass.status === "denied"}
-                                 onClick={() => handleIsApproved(adClass._id, "denied")} className="btn btn-sm btn-error"><FaTimes size={20} /></button>
+                              <button
+                                 disabled={adClass.status === "approved" || adClass.status === "denied"}
+                                 onClick={() => handleIsApproved(adClass._id, "approved")}
+                                 className="btn btn-sm btn-success"><FaCheck size={20} /></button>
+                              <button
+                                 className="btn btn-sm btn-warning" onClick={() => handleFeedback(adClass._id)}><FaRegCommentDots size={20} /></button>
+                              <button
+                                 disabled={adClass.status === "approved" || adClass.status === "denied"}
+                                 onClick={() => handleIsApproved(adClass._id, "denied")}
+                                 className="btn btn-sm btn-error"><FaTimes size={20} /></button>
                            </div>
                         </div>
 

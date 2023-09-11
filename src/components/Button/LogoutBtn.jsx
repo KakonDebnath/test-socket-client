@@ -6,7 +6,7 @@ import { FaSignOutAlt } from 'react-icons/fa';
 
 const LogoutBtn = () => {
     const navigate = useNavigate()
-    const {logOut} = useAuth()
+    const { logOut } = useAuth()
     return (
         <button onClick={() => {
             logOut().then(() => {
@@ -16,8 +16,8 @@ const LogoutBtn = () => {
                     title: 'Logout Successfully',
                     showConfirmButton: false,
                     timer: 1500
-                  })
-                  navigate("/");
+                })
+                navigate("/");
             })
         }} className="btn btn-ghost"> <FaSignOutAlt></FaSignOutAlt> Sign Out</button>
     );
